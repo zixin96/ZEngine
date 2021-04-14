@@ -41,12 +41,12 @@ namespace ZZX
         }
     };
 
-    struct SpriteComponent
+    struct SpriteRendererComponent
     {
         glm::vec4 Color{ 1.0f, 1.0f, 1.0f, 1.0f };
-        SpriteComponent() = default;
-        SpriteComponent(const SpriteComponent& other) = default;
-        SpriteComponent(const glm::vec4& color)
+        SpriteRendererComponent() = default;
+        SpriteRendererComponent(const SpriteRendererComponent& other) = default;
+        SpriteRendererComponent(const glm::vec4& color)
             : Color(color)
         {}
     };

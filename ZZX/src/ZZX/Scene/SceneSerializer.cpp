@@ -137,12 +137,12 @@ namespace ZZX
             out << YAML::EndMap;
         }
 
-        if (entity.HasComponent<SpriteComponent>())
+        if (entity.HasComponent<SpriteRendererComponent>())
         {
-            out << YAML::Key << "SpriteComponent";
+            out << YAML::Key << "SpriteRendererComponent";
             out << YAML::BeginMap;
 
-            auto& sp = entity.GetComponent<SpriteComponent>();
+            auto& sp = entity.GetComponent<SpriteRendererComponent>();
             out << YAML::Key << "Color" << YAML::Value << sp.Color;
 
             out << YAML::EndMap;
@@ -242,10 +242,10 @@ namespace ZZX
                     cc.FixedAspectRatio = cameraComp["FixedAspectRatio"].as<bool>();
                 }
 
-                auto spriteComp = entity["SpriteComponent"];
+                auto spriteComp = entity["SpriteRendererComponent"];
                 if (spriteComp)
                 {
-                    auto& sc = deserializedEntity.AddComponent<SpriteComponent>();
+                    auto& sc = deserializedEntity.AddComponent<SpriteRendererComponent>();
                     sc.Color = spriteComp["Color"].as<glm::vec4>();
                 }
             }

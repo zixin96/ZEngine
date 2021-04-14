@@ -248,7 +248,7 @@ namespace ZZX
 
             if (ImGui::MenuItem("Sprite"))
             {
-                m_SelectionContext.AddComponent<SpriteComponent>();
+                m_SelectionContext.AddComponent<SpriteRendererComponent>();
                 ImGui::CloseCurrentPopup();
             }
             ImGui::EndPopup();
@@ -338,7 +338,7 @@ namespace ZZX
         });
 
 
-        DrawComponent<SpriteComponent>("Sprite", entity, [](auto& component)
+        DrawComponent<SpriteRendererComponent>("Sprite", entity, [](auto& component)
         {
             ImGui::ColorEdit4("Color", glm::value_ptr(component.Color));
         });

@@ -67,10 +67,10 @@ namespace ZZX
         if (mainCamera)
         {
             Renderer2D::BeginScene(mainCamera->GetProjection(), cameraTransform);
-            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteComponent>);
+            auto group = m_Registry.group<TransformComponent>(entt::get<SpriteRendererComponent>);
             for (auto entity : group)
             {
-                auto [trans, sprite] = group.get<TransformComponent, SpriteComponent>(entity);
+                auto [trans, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
                 Renderer2D::DrawQuad(trans.GetTransform(), sprite.Color);
             }
             Renderer2D::EndScene();
@@ -125,7 +125,7 @@ namespace ZZX
     }
 
     template<>
-    void Scene::OnComponentAdded<SpriteComponent>(Entity entity, SpriteComponent& component)
+    void Scene::OnComponentAdded<SpriteRendererComponent>(Entity entity, SpriteRendererComponent& component)
     {
 
     }
