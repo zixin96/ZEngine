@@ -5,6 +5,9 @@
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "ZZX/Scene/SceneSerializer.h"
+#include "ZZX/Utils/PlatformUtils.h"
+
 namespace ZZX
 {
     EditorLayer::EditorLayer()
@@ -24,7 +27,7 @@ namespace ZZX
         m_Framebuffer = Framebuffer::Create(fbSpec);
 
         m_ActiveScene = CreateRef<Scene>();
-
+#if 0
         // Entity
         auto square = m_ActiveScene->CreateEntity("Bad ASS Square");
         square.AddComponent<SpriteComponent>(glm::vec4{ 0.0f, 1.0f, 0.0f, 1.0f });
@@ -80,6 +83,7 @@ namespace ZZX
 
         m_CameraB.AddComponent<NativeScriptComponent>().Bind<CameraController>();
         m_CameraA.AddComponent<NativeScriptComponent>().Bind<CameraController>();
+#endif
         m_SceneHierarchyPanel.SetContext(m_ActiveScene);
     }
 
@@ -183,10 +187,26 @@ namespace ZZX
         {
             if (ImGui::BeginMenu("File"))
             {
+                if (ImGui::MenuItem("New", "Ctrl+N"))
+                {
+                    NewScene();
+                }
+
+                if (ImGui::MenuItem("Open", "Ctrl+O"))
+                {
+					OpenScene();
+                }
+
+                if (ImGui::MenuItem("Save As", "Ctrl+Shift+S"))
+                {
+					SaveSceneAs();
+                }
+
                 if (ImGui::MenuItem("Exit"))
                 {
                     Application::Get().Close();
                 }
+
                 ImGui::Separator();
                 ImGui::EndMenu();
             }
@@ -224,9 +244,83 @@ namespace ZZX
         ImGui::End();
     }
 
+    bool EditorLayer::OnKeyPressed(KeyPressedEvent & e)
+    {
+        // shortcuts
+        if (e.GetRepeatCount() > 0)
+        {
+            return false;
+        }
+        bool control = Input::IsKeyPressed(Key::LeftControl) || Input::IsKeyPressed(Key::RightControl);
+        bool shift = Input::IsKeyPressed(Key::LeftShift) || Input::IsKeyPressed(Key::RightShift);
+        switch (e.GetKeyCode())
+        {
+            case Key::N:
+            {
+                if (control)
+                {
+                    NewScene();
+                }
+                break;
+            }
+            case Key::O:
+            {
+                if (control)
+                {
+                    OpenScene();
+                }
+                break;
+            }
+            case Key::S:
+            {
+                if (control && shift)
+                {
+                    SaveSceneAs();
+                }
+                break;
+            }
+        }
+    }
+
+
+    void EditorLayer::NewScene()
+    {
+        m_ActiveScene = CreateRef<Scene>();
+        m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+        m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+    }
+
+    void EditorLayer::OpenScene()
+    {
+		std::string filePath = FileDialogs::OpenFile("ZZX Scene (*.zzx)\0*.zzx\0");
+		if (!filePath.empty())
+		{
+			m_ActiveScene = CreateRef<Scene>();
+			m_ActiveScene->OnViewportResize((uint32_t)m_ViewportSize.x, (uint32_t)m_ViewportSize.y);
+			m_SceneHierarchyPanel.SetContext(m_ActiveScene);
+
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Deserialize(filePath);
+		}
+
+    }
+
+    void EditorLayer::SaveSceneAs()
+    {
+		std::string filePath = FileDialogs::SaveFile("ZZX Scene (*.zzx)\0*.zzx\0");
+		if (!filePath.empty())
+		{
+			SceneSerializer serializer(m_ActiveScene);
+			serializer.Serialize(filePath);
+		}
+    }
+
     void EditorLayer::OnEvent(Event& e)
     {
         m_CameraController.OnEvent(e);
+
+        EventDispatcher dispatcher(e);
+        dispatcher.Dispatch<KeyPressedEvent>(ZZX_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
     }
 
 }

@@ -14,6 +14,11 @@ namespace ZZX
         void OnUpdate(Timestep timestep) override;
         void OnImguiRender() override;
         void OnEvent(Event& e) override;
+	private:
+		bool OnKeyPressed(KeyPressedEvent& e);
+		void NewScene();
+		void OpenScene();
+		void SaveSceneAs();
     private:
         OrthographicCameraController   m_CameraController;
 
