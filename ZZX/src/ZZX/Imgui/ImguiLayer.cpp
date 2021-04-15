@@ -40,8 +40,8 @@ namespace ZZX
         //io.ConfigViewportsNoAutoMerge = true;
         //io.ConfigViewportsNoTaskBarIcon = true;
 
-        io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Bold.ttf", 20.0f);
-        io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Regular.ttf", 20.0f);
+        io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Bold.ttf", 30.0f);
+        io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Regular.ttf", 30.0f);
 
         // Setup Dear ImGui style
         ImGui::StyleColorsDark();

@@ -55,6 +55,12 @@ namespace ZZX
 
     }
 
+    void SceneHierarchyPanel::SetSelectedEntity(Entity entity)
+    {
+		m_SelectionContext = entity;
+
+    }
+
     void SceneHierarchyPanel::DrawEntityNode(Entity entity)
     {
         auto& tc = entity.GetComponent<TagComponent>().Tag;

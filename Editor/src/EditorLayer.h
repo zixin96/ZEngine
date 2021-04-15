@@ -17,6 +17,7 @@ namespace ZZX
         void OnEvent(Event& e) override;
 	private:
 		bool OnKeyPressed(KeyPressedEvent& e);
+		bool OnMouseButtonPressed(MouseButtonPressedEvent& e);
 		void NewScene();
 		void OpenScene();
 		void SaveSceneAs();
@@ -45,6 +46,9 @@ namespace ZZX
 
 		int m_GizmoType = -1;
 		EditorCamera m_EditorCamera;
+
+		glm::vec2 m_ViewportBounds[2];
+		Entity m_HoveredEntity;
     };
 }
 

@@ -71,7 +71,7 @@ namespace ZZX
             for (auto entity : group)
             {
                 auto [trans, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-                Renderer2D::DrawQuad(trans.GetTransform(), sprite.Color);
+                Renderer2D::DrawSprite(trans.GetTransform(), sprite, (int)entity);
             }
             Renderer2D::EndScene();
         }
@@ -84,7 +84,7 @@ namespace ZZX
 		for (auto entity : group)
 		{
 			auto [trans, sprite] = group.get<TransformComponent, SpriteRendererComponent>(entity);
-			Renderer2D::DrawQuad(trans.GetTransform(), sprite.Color);
+			Renderer2D::DrawSprite(trans.GetTransform(), sprite, (int)entity);
 		}
 		Renderer2D::EndScene();
 	}
