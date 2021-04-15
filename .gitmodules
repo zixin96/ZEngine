@@ -13,3 +13,6 @@
 [submodule ".\\ZZX\\vendor\\yaml-cpp"]
 	path = .\\ZZX\\vendor\\yaml-cpp
 	url = https://github.com/zixin96/yaml-cpp.git
+[submodule ".\\ZZX\\vendor\\ImGuizmo"]
+	path = .\\ZZX\\vendor\\ImGuizmo
+	url = https://github.com/zixin96/ImGuizmo.git

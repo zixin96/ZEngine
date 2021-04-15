@@ -2,6 +2,7 @@
 #include "OrthographicCamera.h"
 #include "Texture.h"
 #include "ZZX/Renderer/Camera.h"
+#include "ZZX/Renderer/EditorCamera.h"
 
 namespace ZZX
 {
@@ -14,6 +15,7 @@ namespace ZZX
 
         static void BeginScene(const OrthographicCamera& camera); // TODO: remove
         static void BeginScene(const Camera& camera, const glm::mat4& transform);
+        static void BeginScene(const EditorCamera& camera);
         static void EndScene();
         static void Flush();
 
@@ -47,6 +49,9 @@ namespace ZZX
         static Statistics GetStats();
         
         static void FlushAndReset();
+	private:
+		static void StartBatch();
+		static void NextBatch();
     };
 }
 

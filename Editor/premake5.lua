@@ -19,7 +19,8 @@ project "Editor"
 		"%{wks.location}/ZZX/src",
 		"%{wks.location}/ZZX/vendor",
 		"%{IncludeDir.glm}",
-		"%{IncludeDir.entt}"
+		"%{IncludeDir.entt}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links

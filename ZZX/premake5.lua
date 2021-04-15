@@ -15,7 +15,9 @@ project "ZZX"
 		"src/**.h",
 		"src/**.cpp",
 		"vendor/stb_image/**.h",
-		"vendor/stb_image/**.cpp"
+		"vendor/stb_image/**.cpp",
+		"vendor/ImGuizmo/ImGuizmo.h",
+		"vendor/ImGuizmo/ImGuizmo.cpp"
 	}
 
 	defines
@@ -34,7 +36,8 @@ project "ZZX"
 		"%{IncludeDir.glm}",
 		"%{IncludeDir.stb_image}",
 		"%{IncludeDir.entt}",
-		"%{IncludeDir.yaml_cpp}"
+		"%{IncludeDir.yaml_cpp}",
+		"%{IncludeDir.ImGuizmo}"
 	}
 
 	links
@@ -45,6 +48,9 @@ project "ZZX"
 		"Imgui",
 		"yaml-cpp"
 	}
+
+	filter "files:vendor/ImGuizmo/**.cpp"
+	flags { "NoPCH" }
 
 	filter "system:windows"
 		systemversion "latest"

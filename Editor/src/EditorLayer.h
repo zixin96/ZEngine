@@ -1,6 +1,7 @@
 #pragma once
 #include "ZZX.h"
 #include "Panels/SceneHierarchyPanel.h"
+#include "ZZX/Renderer/EditorCamera.h"
 
 namespace ZZX
 {
@@ -41,6 +42,9 @@ namespace ZZX
 
         glm::vec2                 m_ViewportSize{ 0.0f, 0.0f };
         SceneHierarchyPanel m_SceneHierarchyPanel;
+
+		int m_GizmoType = -1;
+		EditorCamera m_EditorCamera;
     };
 }
 

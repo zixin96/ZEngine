@@ -2,6 +2,7 @@
 
 #include "entt.hpp"
 #include "ZZX/Core/Timestep.h"
+#include "ZZX/Renderer/EditorCamera.h"
 
 namespace ZZX
 {
@@ -14,8 +15,10 @@ namespace ZZX
         ~Scene();
         Entity CreateEntity(const std::string& name = std::string());
         void DestroyEntity(Entity entity);
-        void OnUpdate(Timestep ts);
+        void OnUpdateRunTime(Timestep ts);
+        void OnUpdateEditor(Timestep ts, EditorCamera& camera);
         void OnViewportResize(uint32_t width, uint32_t height);
+		Entity GetPrimaryCameraEntity();
     private:
         template<typename T>
         void OnComponentAdded(Entity entity, T& component);
