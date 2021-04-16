@@ -14,11 +14,34 @@
 
 ## Game Engine Structure
 
-- Entry point
+`Editor` and `Sandbox` are client applications. 
 
-The solution contains two main projects: an engine project (called "ZZX") and an application project (called "Sandbox"). External dependencies are listed. Sandbox is the default startup project. Since ZZX controls the main function, `main()` resides in ZZX's `EntryPoint.h`. Sandbox's `Game.cpp` will include this file so that the main() will be called when running the application. 
+`ZZX` is the core engine.
 
-- Application layer
+Workflow
+
+1.	Initialize logging functionality
+    - Create client and core engine logger and declare log macros
+2.	Create the application
+    - Initialize `Application`
+        - Create `LayerStack`
+        - Create `IWindow` and sets its event callback
+        - Initialize `Renderer`
+        - Create `ImguiLayer`
+    - 
+3.	Run the application
+4.	Shutdown the application
+
+
+
+INSERT inheritance pics
+
+- Entry point: `EntryPoint.h`
+    - contains `main()` that initializes `Log`, creates, runs, and shutdowns the `Application` if necessary. 
+
+- `Application` layer: 
+    - contains `IWindow`, `LayerStack`, `ImguiLayer`
+
 - Window layer
 	- Input
 	- Events
@@ -34,6 +57,10 @@ The solution contains two main projects: an engine project (called "ZZX") and an
 - File I/O, Virtual File System (VFS)
 - Build system
 
+
+- Precompiled header `zzxpch.h` is used to reduce compilation time.
+    - Files that are not frequently modified (such as STL) are included. 
+    - Precompiled headers may reduce readability by hiding dependencies. Thus, only some selected headers are included.
 
 ## Credits
 

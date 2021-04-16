@@ -6,11 +6,11 @@
 
 namespace ZZX
 {
-    class WinWindow : public IWindow
+    class WindowsSystemWindow : public IWindow
     {
     public:
-        WinWindow(const WindowProps& props);
-        virtual ~WinWindow();
+        WindowsSystemWindow(const WindowProperties& props);
+        virtual ~WindowsSystemWindow();
 
         void OnUpdate() override;
 
@@ -25,7 +25,7 @@ namespace ZZX
         inline virtual void* GetNativeWindow() const override { return m_Window; }
 
     private:
-        virtual void Init(const WindowProps& props);
+        virtual void Init(const WindowProperties& props);
         virtual void Shutdown();
     private:
         GLFWwindow* m_Window;

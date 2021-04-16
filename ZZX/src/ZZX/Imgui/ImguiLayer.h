@@ -12,7 +12,7 @@ namespace ZZX
     {
     public:
         ImguiLayer();
-        ~ImguiLayer();
+        ~ImguiLayer() = default;
 
         virtual void OnAttach() override;
         virtual void OnDetach() override;
@@ -22,8 +22,8 @@ namespace ZZX
         void SetBlockEvents(bool block) { m_BlockEvents = block; }
         void SetDarkThemeColors();
     private:
-        bool m_BlockEvents = true;
-        float m_Time = 0.0f;
+        bool m_BlockEvents;
+        float m_Time;
     };
 }
 

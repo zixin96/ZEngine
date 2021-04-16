@@ -5,13 +5,13 @@
 
 namespace ZZX
 {
-    struct WindowProps
+    struct WindowProperties
     {
         std::string Title;
         uint32_t Width;
         uint32_t Height;
 
-        WindowProps(const std::string& title = "ZZX Engine",
+        WindowProperties(const std::string& title = "ZEngine",
             uint32_t width = 1600,
             uint32_t height = 900)
             : Title(title), Width(width), Height(height)
@@ -19,7 +19,7 @@ namespace ZZX
     };
 
     // Interface representing a desktop system based window
-    class   IWindow
+    class IWindow
     {
     public:
         using EventCallbackFn = std::function<void(Event&)>;
@@ -39,6 +39,6 @@ namespace ZZX
         // return void* b/c we don't necessary only have glfw window
         virtual void* GetNativeWindow() const = 0;
 
-        static Scope<IWindow> Create(const WindowProps& props = WindowProps());
+        static Scope<IWindow> Create(const WindowProperties& props = WindowProperties());
     };
 }

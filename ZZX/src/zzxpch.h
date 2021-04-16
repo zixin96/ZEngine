@@ -10,24 +10,28 @@
 #endif
 
 #include <iostream>
+#include <sstream>
+
 #include <memory>
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <optional>
 
+// Data structures
 #include <string>
-#include <sstream>
 #include <vector>
 #include <array>
 #include <unordered_map>
 #include <unordered_set>
 
 #include "ZZX/Core/Core.h"
+
 #include "ZZX/Core/Log.h"
+
 #include "ZZX/Debug/Instrumentor.h"
 
 #ifdef ZZX_PLATFORM_WINDOWS
+	// Windows API
 	#include <Windows.h>
 #endif
 

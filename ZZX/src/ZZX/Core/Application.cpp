@@ -25,7 +25,7 @@ namespace ZZX
         ZZX_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
-        m_Window = Scope<IWindow>(IWindow::Create(WindowProps(name)));
+        m_Window = IWindow::Create(WindowProperties(name));
         m_Window->SetEventCallback(ZZX_BIND_EVENT_FN(Application::OnEvent));
 
         Renderer::Init();
@@ -46,6 +46,7 @@ namespace ZZX
         ZZX_PROFILE_FUNCTION();
 
         m_LayerStack.PushLayer(layer);
+        layer->OnAttach();
     }
 
     void Application::PushOverlay(Layer* overlay)
@@ -53,6 +54,7 @@ namespace ZZX
         ZZX_PROFILE_FUNCTION();
 
         m_LayerStack.PushOverlay(overlay);
+        overlay->OnAttach();
     }
 
     void Application::Close()
@@ -67,6 +69,7 @@ namespace ZZX
         while (m_Running)
         {
             ZZX_PROFILE_SCOPE("Application RunLoop");
+
             float time = (float)glfwGetTime(); // Platform::GetTime
             Timestep timestep = time - m_LastFrameTime;
             m_LastFrameTime = time;

@@ -1,5 +1,7 @@
 #pragma once
 
+// Layer renders graphics and receives events
+
 #include "ZZX/Core/Core.h"
 #include "ZZX/Events/Event.h"
 #include "ZZX/Core/Timestep.h"
@@ -10,7 +12,7 @@ namespace ZZX
     {
     public:
         Layer(const std::string& name = "Layer");
-        virtual ~Layer();
+        virtual ~Layer() = default;
 
         virtual void OnAttach() {}
         virtual void OnDetach() {}
@@ -18,7 +20,7 @@ namespace ZZX
         virtual void OnImguiRender() {}
         virtual void OnEvent(Event& event) {}
 
-        inline const std::string& GetName() const { return m_DebugName; }
+        const std::string& GetName() const { return m_DebugName; }
     protected:
         std::string m_DebugName;
     };

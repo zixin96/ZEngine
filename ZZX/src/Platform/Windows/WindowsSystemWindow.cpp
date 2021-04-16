@@ -1,5 +1,5 @@
 #include "zzxpch.h"
-#include "WinWindow.h"
+#include "WindowsSystemWindow.h"
 
 #include "ZZX/Events/ApplicationEvent.h"
 #include "ZZX/Events/MouseEvent.h"
@@ -16,26 +16,21 @@ namespace ZZX
         ZZX_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
     }
     
-    Scope<IWindow> IWindow::Create(const WindowProps& props)
-    {
-		return CreateScope<WinWindow>(props);
-    }
-
-    WinWindow::WinWindow(const WindowProps& props)
+    WindowsSystemWindow::WindowsSystemWindow(const WindowProperties& props)
     {
         ZZX_PROFILE_FUNCTION();
 
         Init(props);
     }
 
-    WinWindow::~WinWindow()
+    WindowsSystemWindow::~WindowsSystemWindow()
     {
         ZZX_PROFILE_FUNCTION();
 
         Shutdown();
     }
 
-    void WinWindow::OnUpdate()
+    void WindowsSystemWindow::OnUpdate()
     {
         ZZX_PROFILE_FUNCTION();
 
@@ -43,7 +38,7 @@ namespace ZZX
         m_Context->SwapBuffers();
     }
 
-    void WinWindow::SetVSync(bool enabled)
+    void WindowsSystemWindow::SetVSync(bool enabled)
     {
         ZZX_PROFILE_FUNCTION();
 
@@ -57,12 +52,12 @@ namespace ZZX
         m_Data.VSync = enabled;
     }
 
-    bool WinWindow::IsVSync() const
+    bool WindowsSystemWindow::IsVSync() const
     {
         return m_Data.VSync;
     }
 
-    void WinWindow::Init(const WindowProps& props)
+    void WindowsSystemWindow::Init(const WindowProperties& props)
     {
         ZZX_PROFILE_FUNCTION();
 
@@ -187,7 +182,7 @@ namespace ZZX
         });
     }
 
-    void WinWindow::Shutdown()
+    void WindowsSystemWindow::Shutdown()
     {
         ZZX_PROFILE_FUNCTION();
 

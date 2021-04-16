@@ -8,33 +8,31 @@ namespace ZZX
 {
     bool Input::IsKeyPressed(KeyCode keycode)
     {
-        GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-        int state = glfwGetKey(window, keycode);
+        auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+        auto state = glfwGetKey(window, keycode);
         return state == GLFW_PRESS || state == GLFW_REPEAT;
     }
 
     bool Input::IsMouseButtonPressed(MouseCode button)
     {
-        GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
-        int state = glfwGetMouseButton(window, button);
+        auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+        auto state = glfwGetMouseButton(window, button);
         return state == GLFW_PRESS;
     }
 
     float Input::GetMouseX()
     {
-        auto [x, y] = GetMousePosition();
-        return x;
+		return GetMousePosition().x;
     }
 
     float Input::GetMouseY()
     {
-        auto [x, y] = GetMousePosition();
-        return y;
+		return GetMousePosition().y;
     }
 
-    std::pair<float, float> Input::GetMousePosition()
+    glm::vec2 Input::GetMousePosition()
     {
-        GLFWwindow* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
+        auto* window = static_cast<GLFWwindow*>(Application::Get().GetWindow().GetNativeWindow());
         double xpos, ypos;
         glfwGetCursorPos(window, &xpos, &ypos);
         return { (float)xpos, (float)ypos };

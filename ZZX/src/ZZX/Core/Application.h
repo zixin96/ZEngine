@@ -14,22 +14,28 @@ namespace ZZX
     class Application
     {
     public: 
-        Application(const std::string& name = "ZZX Engine");
+        Application(const std::string& name = "ZEngine");
         virtual ~Application();
+
         void Run();
+        void Close();
+
         void OnEvent(Event& e);
+
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
-        void Close();
-        inline static Application& Get() { return *s_Instance; }
-        inline IWindow& GetWindow() { return *m_Window; }
+
+        static Application& Get() { return *s_Instance; }
+
+        IWindow& GetWindow() { return *m_Window; }
+
         ImguiLayer* GetImGuiLayer() { return m_ImguiLayer; }
     private:
         bool OnWindowClosed(WindowCloseEvent& e);
         bool OnWindowKeyPressed(KeyPressedEvent& e);
         bool OnWindowResized(WindowResizeEvent& e);
     private:
-        Scope<IWindow>       m_Window;
+        Scope<IWindow>      m_Window;
         ImguiLayer*         m_ImguiLayer;
         LayerStack          m_LayerStack; 
         float               m_LastFrameTime;

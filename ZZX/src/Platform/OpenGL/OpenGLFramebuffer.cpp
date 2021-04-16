@@ -102,7 +102,7 @@ namespace ZZX
     OpenGLFramebuffer::~OpenGLFramebuffer()
     {
         glDeleteFramebuffers(1, &m_RendererID);
-		glDeleteTextures(m_ColorAttachments.size(), m_ColorAttachments.data());
+		glDeleteTextures((GLsizei)m_ColorAttachments.size(), m_ColorAttachments.data());
         glDeleteTextures(1, &m_DepthAttachment);
     }
 
@@ -111,7 +111,7 @@ namespace ZZX
         if (m_RendererID)
         {
             glDeleteFramebuffers(1, &m_RendererID);
-            glDeleteTextures(m_ColorAttachments.size(), m_ColorAttachments.data());
+            glDeleteTextures((GLsizei)m_ColorAttachments.size(), m_ColorAttachments.data());
             glDeleteTextures(1, &m_DepthAttachment);
 
 			m_ColorAttachments.clear();

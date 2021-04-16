@@ -1,17 +1,20 @@
 #pragma once
 
+// A helper class for calculating delta time.
+
 namespace ZZX
 {
     class Timestep
     {
     public:
         Timestep(float time = 0.0f)
-            : m_Time(time)
+            : m_TimeInSeconds(time)
         {}
-        float GetSeconds() const { return m_Time; }
-        float GetMilliseconds() const { return m_Time * 1000.0f; }
-        operator float() const { return m_Time; }
+        float GetSeconds() const { return m_TimeInSeconds; }
+        float GetMilliseconds() const { return m_TimeInSeconds * 1000.0f; }
+        operator float() const { return m_TimeInSeconds; } // overloading typecasts: https://www.learncpp.com/cpp-tutorial/overloading-typecasts/
+
     private:
-        float m_Time;
+        float m_TimeInSeconds;
     };
 }
