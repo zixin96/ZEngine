@@ -8,6 +8,9 @@
 
 #include <GLFW/glfw3.h>
 
+const static uint32_t WINDOW_WIDTH = 1600;
+const static uint32_t WINDOW_HEIGHT = 900;
+
 namespace ZZX
 {
     Application* Application::s_Instance = nullptr;
@@ -25,7 +28,7 @@ namespace ZZX
         ZZX_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
-        m_Window = IWindow::Create(WindowProperties(name));
+        m_Window = IWindow::Create(WindowProperties(name, WINDOW_WIDTH, WINDOW_HEIGHT));
         m_Window->SetEventCallback(ZZX_BIND_EVENT_FN(Application::OnEvent));
 
         Renderer::Init();

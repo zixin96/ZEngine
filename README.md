@@ -1,5 +1,7 @@
 # ZZX Engine
 
+An Interactive application with real-time 3D graphics
+
 ## Engine Architecture
 
 - Build configuration: premake
@@ -11,8 +13,9 @@
     - imgui: GUI 
     - spdlog: Logging
     - stb: Texture Loading
+    - yaml: scene serialization
 
-## Game Engine Structure
+## Game Engine (Data Transformation Machine) Structure
 
 `Editor` and `Sandbox` are client applications. 
 
@@ -22,6 +25,7 @@ Workflow
 
 1.	Initialize logging functionality
     - Create client and core engine logger and declare log macros
+
 2.	Create the application
     - Initialize `Application`
         - Create `LayerStack`
@@ -65,3 +69,7 @@ INSERT inheritance pics
 ## Credits
 
 Inspired by Hazel Engine
+
+## TODOs
+
+- LJ spdlog class
