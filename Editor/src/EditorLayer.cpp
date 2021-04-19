@@ -8,7 +8,19 @@
 #include "ZZX/Scene/SceneSerializer.h"
 #include "ZZX/Utils/PlatformUtils.h"
 #include "ImGuizmo.h"
+#include "Noise.h"
+#include "MapGenerator.h"
 #include "ZZX/Math/Math.h"
+
+
+const static int mapChunkSize = 241;
+const static int seed = 88;
+const static float noiseScale = 25;
+const static int octaves = 4;
+const static float persistance = 0.5f;
+const static float lacunarity = 1.76f;
+const static glm::vec2 offset = glm::vec2(0.f);
+
 
 namespace ZZX
 {
@@ -33,6 +45,43 @@ namespace ZZX
         m_ActiveScene = CreateRef<Scene>();
 
 		m_EditorCamera = EditorCamera(30.0f, 1.778f, 0.1f, 1000.f);
+
+    	// Terrain
+		std::vector<TerrainType> regions;
+		TerrainType water;
+		water.Name = "Water";
+		water.Height = 0.4f;
+		water.Color = glm::vec3(53.0f / 255.0f, 102.0f / 255.0f, 123.0f / 255.0f);
+		TerrainType grass;
+		grass.Name = "Grass";
+		grass.Height = 1.0f;
+		grass.Color = glm::vec3(51.0f / 255.0f, 161.0f / 255.0f, 36.0f / 255.0f);
+		regions.push_back(water);
+		regions.push_back(grass);
+
+
+		std::vector<std::vector<float>> noiseMap = Noise::GenerateNoiseMap(mapChunkSize, mapChunkSize, seed, noiseScale, octaves, persistance, lacunarity, offset);
+
+		std::vector<glm::vec2> colorMap;
+		colorMap.reserve(mapChunkSize * mapChunkSize);
+
+    	for(int y = 0; y < mapChunkSize; y++)
+    	{
+    		for(int x = 0; x < mapChunkSize; x++)
+    		{
+				float currentHeight = noiseMap[x][y];
+				for(int i = 0; i < regions.size(); i++)
+				{
+					if(currentHeight <= regions[i].Height)
+					{
+						colorMap[x + mapChunkSize * y] = regions[i].Color;
+						break;
+					}
+				}
+    		}
+    	}
+
+    	
 #if 0
         // Entity
         auto square = m_ActiveScene->CreateEntity("Bad ASS Square");
