@@ -1,18 +1,18 @@
 [submodule ".\\ZZX\\vendor\\spdlog"]
-	path = .\\ZZX\\vendor\\spdlog
+	path = ZZX/vendor/spdlog
 	url = https://github.com/zixin96/spdlog.git
 [submodule ".\\ZZX\\vendor\\GLFW"]
-	path = .\\ZZX\\vendor\\GLFW
+	path = ZZX/vendor/GLFW
 	url = https://github.com/zixin96/glfw.git
 [submodule ".\\ZZX\\vendor\\imgui"]
-	path = .\\ZZX\\vendor\\imgui
+	path = ZZX/vendor/imgui
 	url = https://github.com/zixin96/imgui.git
 [submodule ".\\ZZX\\vendor\\glm"]
-	path = .\\ZZX\\vendor\\glm
+	path = ZZX/vendor/glm
 	url = https://github.com/zixin96/glm.git
 [submodule ".\\ZZX\\vendor\\yaml-cpp"]
-	path = .\\ZZX\\vendor\\yaml-cpp
+	path = ZZX/vendor/yaml-cpp
 	url = https://github.com/zixin96/yaml-cpp.git
 [submodule ".\\ZZX\\vendor\\ImGuizmo"]
-	path = .\\ZZX\\vendor\\ImGuizmo
+	path = ZZX/vendor/ImGuizmo
 	url = https://github.com/zixin96/ImGuizmo.git
