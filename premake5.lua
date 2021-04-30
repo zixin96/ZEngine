@@ -1,5 +1,3 @@
-include "./vendor/premake/premake_customization/solution_items.lua"
-
 workspace "ZZX"
 	architecture "x86_64"
 	startproject "Editor"
@@ -9,11 +7,6 @@ workspace "ZZX"
 		"Debug",
 		"Release",
 		"Dist"
-	}
-
-	solution_items
-	{
-		".editorconfig"
 	}
 
 	flags
@@ -35,7 +28,6 @@ IncludeDir["yaml_cpp"] = "%{wks.location}/ZZX/vendor/yaml-cpp/include"
 IncludeDir["ImGuizmo"] = "%{wks.location}/ZZX/vendor/ImGuizmo"
 
 group "Dependencies"
-	include "vendor/premake"
 	include "ZZX/vendor/GLFW"
 	include "ZZX/vendor/GLAD"
 	include "ZZX/vendor/imgui"
