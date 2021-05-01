@@ -9,6 +9,7 @@
 
 namespace ZE
 {
+    // we may have more than one window
     static uint8_t s_GLFWWindowCount = 0;
 
     static void GLFWErrorCallback(int error, const char* description)
@@ -67,6 +68,7 @@ namespace ZE
 
         ZE_CORE_INFO("Creating window {0}, ({1}, {2})", props.Title, props.Width, props.Height);
 
+        // We only need to initialize GLFW once even if we have multiple windows
         if (s_GLFWWindowCount == 0)
         {
             ZE_PROFILE_SCOPE("glfwInit");
@@ -188,6 +190,7 @@ namespace ZE
 
         glfwDestroyWindow(m_Window);
 
+        // When the last window is destroyed, terminate GLFW
         if (--s_GLFWWindowCount == 0)
         {
             ZE_CORE_INFO("Terminating GLFW");

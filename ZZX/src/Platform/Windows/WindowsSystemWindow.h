@@ -30,6 +30,8 @@ namespace ZE
     private:
         GLFWwindow* m_Window;
         GraphicsContext* m_Context;
+
+        // WindowData is here for passing into GLFW 
         struct WindowData
         {
             std::string Title;
@@ -41,6 +43,7 @@ namespace ZE
             EventCallbackFn EventCallback;
         };
 
+        // This is where we store our actual data that may be requested during GLFW event callback
         WindowData m_Data;
     };
 }
