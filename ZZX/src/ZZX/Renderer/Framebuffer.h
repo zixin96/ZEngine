@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 
 namespace ZZX
 {

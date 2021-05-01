@@ -17,7 +17,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 
 #include "ZZX/Core/Log.h"
 

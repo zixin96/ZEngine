@@ -1,12 +1,6 @@
 #pragma once
 #include <memory>
 
-namespace ZZX {
-
-    void InitializeCore();
-    void ShutdownCore();
-}
-
 // __VA_ARGS__ expansion to get past MSVC "bug"
 #define ZZX_EXPAND_VARGS(x) x
 
@@ -18,6 +12,9 @@ namespace ZZX {
 
 namespace ZZX
 {
+    void InitializeCore();
+    void ShutdownCore();
+
     template<typename T>
     using Scope = std::unique_ptr<T>;
 
@@ -35,6 +32,5 @@ namespace ZZX
     {
         return std::make_shared<T>(std::forward<Args>(args)...);
     }
-
 }
 

@@ -2,7 +2,7 @@
 
 // Layer renders graphics and receives events
 
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 #include "ZZX/Events/Event.h"
 #include "ZZX/Core/Timestep.h"
 

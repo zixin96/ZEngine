@@ -1,7 +1,7 @@
 #pragma once
 
 // A header file intended to be included by client applications
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 
 #include "ZZX/Core/Application.h"
 #include "ZZX/Core/Layer.h"

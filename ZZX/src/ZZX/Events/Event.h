@@ -1,7 +1,7 @@
 #pragma once
 
 #include "zzxpch.h"
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 
 namespace ZZX
 {

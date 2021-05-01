@@ -1,7 +1,6 @@
 #include "zzxpch.h"
-#include "Core.h"
+#include "Base.h"
 #include "Log.h"
-
 
 #define ZZX_BUILD_ID "v0.1a"
 

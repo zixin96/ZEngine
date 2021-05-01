@@ -1,6 +1,6 @@
 #pragma once
 
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 #include "ZZX/Core/IWindow.h"
 #include "ZZX/Core/LayerStack.h"
 #include "ZZX/Events/Event.h"

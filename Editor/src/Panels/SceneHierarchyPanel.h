@@ -1,5 +1,5 @@
 #pragma once
-#include "ZZX/Core/Core.h"
+#include "ZZX/Core/Base.h"
 #include "ZZX/Scene/Scene.h"
 #include "ZZX/Scene/Entity.h"
 
