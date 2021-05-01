@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ZZX
+namespace ZE
 {
     enum class ShaderDataType
     {

@@ -2,7 +2,7 @@
 #include "ZZX/Core/Base.h"
 #include <string>
 
-namespace ZZX
+namespace ZE
 {
     class Texture
     {

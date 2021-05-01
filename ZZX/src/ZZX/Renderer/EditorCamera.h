@@ -5,7 +5,7 @@
 #include "ZZX/Events/MouseEvent.h"
 #include <glm/glm.hpp>
 
-namespace ZZX
+namespace ZE
 {
 	class EditorCamera : public Camera
 	{

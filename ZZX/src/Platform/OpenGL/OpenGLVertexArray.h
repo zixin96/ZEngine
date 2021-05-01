@@ -2,7 +2,7 @@
 
 #include "ZZX/Renderer/VertexArray.h"
 
-namespace ZZX
+namespace ZE
 {
     class OpenGLVertexArray : public VertexArray
     {

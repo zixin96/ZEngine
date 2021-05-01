@@ -10,7 +10,7 @@
 #include "ImGuizmo.h"
 #include "ZZX/Math/Math.h"
 
-namespace ZZX
+namespace ZE
 {
     EditorLayer::EditorLayer()
         : Layer("EditorLayer"),

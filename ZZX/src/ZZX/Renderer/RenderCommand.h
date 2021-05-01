@@ -2,7 +2,7 @@
 
 #include "RendererAPI.h"
 
-namespace ZZX
+namespace ZE
 {
     class RenderCommand
     {

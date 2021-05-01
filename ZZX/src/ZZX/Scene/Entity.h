@@ -4,7 +4,7 @@
 #include "Scene.h"
 #include "ZZX/Core/Log.h"
 
-namespace ZZX
+namespace ZE
 {
     class Entity
     {

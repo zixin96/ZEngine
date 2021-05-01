@@ -4,7 +4,7 @@
 #include <GLFW/glfw3.h>
 #include "ZZX/Core/Application.h"
 
-namespace ZZX
+namespace ZE
 {
     bool Input::IsKeyPressed(KeyCode keycode)
     {

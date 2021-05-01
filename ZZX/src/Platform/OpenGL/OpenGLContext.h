@@ -3,7 +3,7 @@
 
 struct GLFWwindow;
 
-namespace ZZX
+namespace ZE
 {
     class OpenGLContext : public GraphicsContext
     {

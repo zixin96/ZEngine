@@ -2,7 +2,7 @@
 #include "OpenGLFramebuffer.h"
 #include <glad/glad.h>
 
-namespace ZZX
+namespace ZE
 {
     static const uint32_t s_MaxFramebufferSize = 8192;
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <glm/glm.hpp>
 
-namespace ZZX
+namespace ZE
 {
     class Camera
     {

@@ -3,7 +3,7 @@
 #include "ZZX/Core/Input.h"
 #include "ZZX/Core/KeyCodes.h"
 
-namespace ZZX
+namespace ZE
 {
     
     OrthographicCameraController::OrthographicCameraController(float aspectRatio, bool rotation)

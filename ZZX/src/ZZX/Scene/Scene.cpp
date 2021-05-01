@@ -5,7 +5,7 @@
 #include "ZZX/Renderer/Renderer2D.h"
 #include "Entity.h"
 
-namespace ZZX
+namespace ZE
 {
     
     Scene::Scene()

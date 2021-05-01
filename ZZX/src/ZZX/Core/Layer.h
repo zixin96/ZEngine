@@ -6,7 +6,7 @@
 #include "ZZX/Events/Event.h"
 #include "ZZX/Core/Timestep.h"
 
-namespace ZZX
+namespace ZE
 {
     class Layer
     {

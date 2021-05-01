@@ -3,7 +3,7 @@
 #include "ZZX/Core/Base.h"
 #include "ZZX/Events/Event.h"
 
-namespace ZZX
+namespace ZE
 {
     struct WindowProperties
     {

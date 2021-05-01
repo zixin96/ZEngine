@@ -1,7 +1,7 @@
 #include <ZZX.h>
 #include "EditorLayer.h"
 
-namespace ZZX
+namespace ZE
 {
     class Editor : public Application
     {

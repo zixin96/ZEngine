@@ -5,7 +5,7 @@
 #include "ZZX/Events/ApplicationEvent.h"
 #include "ZZX/Events/MouseEvent.h"
 
-namespace ZZX
+namespace ZE
 {
     class OrthographicCameraController
     {

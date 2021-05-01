@@ -5,7 +5,7 @@
 #include "RenderCommand.h"
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace ZZX
+namespace ZE
 {   
     struct QuadVertex
     {

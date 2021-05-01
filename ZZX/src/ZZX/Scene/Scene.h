@@ -4,7 +4,7 @@
 #include "ZZX/Core/Timestep.h"
 #include "ZZX/Renderer/EditorCamera.h"
 
-namespace ZZX
+namespace ZE
 {
     class Entity;
 

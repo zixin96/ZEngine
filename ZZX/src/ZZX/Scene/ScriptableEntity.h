@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
 
-namespace ZZX
+namespace ZE
 {
     class ScriptableEntity 
     {

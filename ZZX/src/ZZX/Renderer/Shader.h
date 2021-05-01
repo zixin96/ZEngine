@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 
-namespace ZZX
+namespace ZE
 {
     class Shader
     {

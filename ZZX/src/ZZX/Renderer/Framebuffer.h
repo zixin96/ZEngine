@@ -2,7 +2,7 @@
 
 #include "ZZX/Core/Base.h"
 
-namespace ZZX
+namespace ZE
 {
 	enum class FrameBufferTextureFormat
 	{

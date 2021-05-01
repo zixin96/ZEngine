@@ -3,7 +3,7 @@
 #include "zzxpch.h"
 #include "ZZX/Core/Base.h"
 
-namespace ZZX
+namespace ZE
 {
 	// Events in ZZX are currently blocking, meaning when an event occurs it
 	// immediately gets dispatched and must be dealt with right there.

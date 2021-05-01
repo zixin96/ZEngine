@@ -5,7 +5,7 @@
 #include "Platform/OpenGL/OpenGLTexture.h"
 
 
-namespace ZZX
+namespace ZE
 {
     Ref<Texture2D> Texture2D::Create(const std::string& path)
     {

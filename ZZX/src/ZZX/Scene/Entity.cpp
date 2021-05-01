@@ -1,7 +1,7 @@
 #include "zzxpch.h"
 #include "Entity.h"
 
-namespace ZZX
+namespace ZE
 {
     Entity::Entity()
         : m_EntityHandle{ entt::null },

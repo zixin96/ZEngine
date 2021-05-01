@@ -4,7 +4,7 @@
 #include "ZZX/Scene/Component.h"
 #include <glm/gtc/type_ptr.hpp>
 
-namespace ZZX
+namespace ZE
 {
 
     SceneHierarchyPanel::SceneHierarchyPanel(const Ref<Scene>& scene)

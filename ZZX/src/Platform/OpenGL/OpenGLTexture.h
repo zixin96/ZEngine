@@ -3,7 +3,7 @@
 #include "ZZX/Renderer/Texture.h"
 #include <glad/glad.h>
 
-namespace ZZX
+namespace ZE
 {
     class OpenGLTexture2D : public Texture2D
     {

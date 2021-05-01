@@ -7,7 +7,7 @@
 #include <GLFW/glfw3native.h>
 #include <ZZX/Core/Application.h>
 
-namespace ZZX
+namespace ZE
 {
 	std::string FileDialogs::OpenFile(const char* filter)
 	{

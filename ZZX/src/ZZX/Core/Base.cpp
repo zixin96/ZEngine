@@ -4,7 +4,7 @@
 
 #define ZE_BUILD_ID "v0.1a"
 
-namespace ZZX {
+namespace ZE {
 
     void InitializeCore()
     {

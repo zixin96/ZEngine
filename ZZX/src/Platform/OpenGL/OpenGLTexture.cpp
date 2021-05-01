@@ -3,7 +3,7 @@
 #include <glad/glad.h>
 #include "stb_image.h"
 
-namespace ZZX
+namespace ZE
 {
     
     OpenGLTexture2D::OpenGLTexture2D(const std::string& path)

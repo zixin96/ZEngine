@@ -2,7 +2,7 @@
 #include "ZZX/Renderer/Buffer.h"
 
 
-namespace ZZX
+namespace ZE
 {
     class VertexArray
     {

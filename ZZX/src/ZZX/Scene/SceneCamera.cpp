@@ -2,7 +2,7 @@
 #include "SceneCamera.h"
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace ZZX
+namespace ZE
 {
     SceneCamera::SceneCamera()
     {

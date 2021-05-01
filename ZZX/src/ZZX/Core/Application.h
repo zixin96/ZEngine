@@ -9,7 +9,7 @@
 #include "ZZX/Core/Timestep.h"
 #include "ZZX/Imgui/ImguiLayer.h"
 
-namespace ZZX
+namespace ZE
 {
     class Application
     {

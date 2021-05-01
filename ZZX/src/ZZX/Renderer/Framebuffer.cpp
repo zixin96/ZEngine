@@ -4,10 +4,10 @@
 #include "Platform/OpenGL/OpenGLFramebuffer.h"
 #include "Renderer.h"
 
-namespace ZZX
+namespace ZE
 {
     
-    Ref<ZZX::Framebuffer> Framebuffer::Create(const FramebufferSpecification& spec)
+    Ref<ZE::Framebuffer> Framebuffer::Create(const FramebufferSpecification& spec)
     {
         // which api are we using? 
         switch (Renderer::GetAPI())

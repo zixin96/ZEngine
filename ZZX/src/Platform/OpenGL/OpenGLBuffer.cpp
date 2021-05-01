@@ -2,7 +2,7 @@
 #include "OpenGLBuffer.h"
 #include <glad/glad.h>
 
-namespace ZZX
+namespace ZE
 {
     OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size, float* vertices)
     {

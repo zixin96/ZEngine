@@ -1,6 +1,6 @@
 #pragma once
 
-namespace ZZX
+namespace ZE
 {
     class GraphicsContext
     {

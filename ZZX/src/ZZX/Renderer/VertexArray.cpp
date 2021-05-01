@@ -3,7 +3,7 @@
 #include "Renderer.h"
 #include "Platform/OpenGL/OpenGLVertexArray.h"
 
-namespace ZZX
+namespace ZE
 {
     Ref<VertexArray> VertexArray::Create()
     {

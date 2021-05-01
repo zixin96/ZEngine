@@ -2,7 +2,7 @@
 
 #include "Scene.h"
 
-namespace ZZX
+namespace ZE
 {
     class SceneSerializer
     {

@@ -6,7 +6,7 @@
 #include <fstream>
 #include <thread>
 
-namespace ZZX
+namespace ZE
 {
     struct ProfileResult
     {
@@ -124,9 +124,9 @@ namespace ZZX
 
 #define ZE_PROFILE 1
 #if ZE_PROFILE
-    #define ZE_PROFILE_BEGIN_SESSION(name, filePath) ::ZZX::Instrumentor::Get().BeginSession(name, filePath)
-    #define ZE_PROFILE_END_SESSION() ::ZZX::Instrumentor::Get().EndSession()
-    #define ZE_PROFILE_SCOPE(name) ::ZZX::InstrumentationTimer timer##__LINE__(name)
+    #define ZE_PROFILE_BEGIN_SESSION(name, filePath) ::ZE::Instrumentor::Get().BeginSession(name, filePath)
+    #define ZE_PROFILE_END_SESSION() ::ZE::Instrumentor::Get().EndSession()
+    #define ZE_PROFILE_SCOPE(name) ::ZE::InstrumentationTimer timer##__LINE__(name)
     #define ZE_PROFILE_FUNCTION() ZE_PROFILE_SCOPE(__FUNCSIG__)
 #else 
     #define ZE_PROFILE_BEGIN_SESSION(name, filePath)

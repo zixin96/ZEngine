@@ -5,7 +5,7 @@
 #ifdef ZE_PLATFORM_WINDOWS
 
 // To be defined in client
-extern ZZX::Application* ZZX::CreateApplication();
+extern ZE::Application* ZE::CreateApplication();
 
 bool g_ApplicationRunning = true;
 
@@ -13,12 +13,12 @@ int main(int argc, char** argv)
 {
     while (g_ApplicationRunning)
     {
-        ZZX::InitializeCore();
-        ZZX::Application* app = ZZX::CreateApplication();
+        ZE::InitializeCore();
+        ZE::Application* app = ZE::CreateApplication();
         ZE_CORE_ASSERT(app, "Client Application is null!");
         app->Run();
         delete app;
-        ZZX::ShutdownCore();
+        ZE::ShutdownCore();
     }
 }
 

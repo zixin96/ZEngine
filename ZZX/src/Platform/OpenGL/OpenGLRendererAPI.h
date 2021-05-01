@@ -2,7 +2,7 @@
 
 #include "ZZX/Renderer/RendererAPI.h"
 
-namespace ZZX
+namespace ZE
 {
     class OpenGLRendererAPI : public RendererAPI
     {

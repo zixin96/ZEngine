@@ -3,7 +3,7 @@
 #include "Panels/SceneHierarchyPanel.h"
 #include "ZZX/Renderer/EditorCamera.h"
 
-namespace ZZX
+namespace ZE
 {
     class EditorLayer : public Layer
     {

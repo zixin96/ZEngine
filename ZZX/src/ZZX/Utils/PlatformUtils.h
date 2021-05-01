@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace ZZX
+namespace ZE
 {
 	class FileDialogs
 	{

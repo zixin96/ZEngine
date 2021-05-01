@@ -4,7 +4,7 @@
 #include "ZZX/Renderer/GraphicsContext.h"
 #include <GLFW/glfw3.h>
 
-namespace ZZX
+namespace ZE
 {
     class WindowsSystemWindow : public IWindow
     {

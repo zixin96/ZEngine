@@ -3,7 +3,7 @@
 #include "Event.h"
 #include "ZZX/Core/MouseButtonCodes.h"
 
-namespace ZZX
+namespace ZE
 {
 	class MouseMovedEvent : public Event
 	{

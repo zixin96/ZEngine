@@ -1,7 +1,7 @@
 #pragma once
 #include "ZZX/Renderer/Camera.h"
 
-namespace ZZX
+namespace ZE
 {
     class SceneCamera : public Camera
     {

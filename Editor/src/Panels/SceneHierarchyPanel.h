@@ -3,7 +3,7 @@
 #include "ZZX/Scene/Scene.h"
 #include "ZZX/Scene/Entity.h"
 
-namespace ZZX
+namespace ZE
 {
     class SceneHierarchyPanel
     {

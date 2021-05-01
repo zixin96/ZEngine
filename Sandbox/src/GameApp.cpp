@@ -1,7 +1,7 @@
 #include <ZZX.h>
 #include "Sandbox2DLayer.h"
 
-class GameApp : public ZZX::Application
+class GameApp : public ZE::Application
 {
 public:
     GameApp()
@@ -15,7 +15,7 @@ public:
     }
 };
 
-ZZX::Application* ZZX::CreateApplication()
+ZE::Application* ZE::CreateApplication()
 {
     return new GameApp();
 }

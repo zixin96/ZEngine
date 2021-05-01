@@ -3,7 +3,7 @@
 #include <fstream>
 #include <glad/glad.h>
 
-namespace ZZX
+namespace ZE
 {
     static GLenum ShaderTypeFromString(const std::string& type)
     {

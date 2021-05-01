@@ -2,7 +2,7 @@
 
 // A helper class for calculating delta time.
 
-namespace ZZX
+namespace ZE
 {
     class Timestep
     {

@@ -13,7 +13,7 @@ const static uint32_t WINDOW_HEIGHT = 900;
 
 extern bool g_ApplicationRunning;
 
-namespace ZZX
+namespace ZE
 {
     Application* Application::s_Instance = nullptr;
 

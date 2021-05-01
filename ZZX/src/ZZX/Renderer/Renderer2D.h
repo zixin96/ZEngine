@@ -5,7 +5,7 @@
 #include "ZZX/Renderer/EditorCamera.h"
 #include "ZZX/Scene/Component.h"
 
-namespace ZZX
+namespace ZE
 {
     class Renderer2D
     {

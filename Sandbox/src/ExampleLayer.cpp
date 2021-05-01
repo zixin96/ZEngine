@@ -9,44 +9,44 @@ ExampleLayer::ExampleLayer()
     m_CameraController(1280.0f / 720.0f, false)
 {
     {
-        m_TriangleVAO = ZZX::VertexArray::Create();
+        m_TriangleVAO = ZE::VertexArray::Create();
         float vertices[] = {
             -0.5f, -0.5f, 0.0f,
             0.5f, -0.5f, 0.0f,
             0.0f, 0.5f, 0.0f
         };
-        ZZX::Ref<ZZX::VertexBuffer> triangleVBO;
-        triangleVBO = ZZX::VertexBuffer::Create(sizeof(vertices), vertices);
+        ZE::Ref<ZE::VertexBuffer> triangleVBO;
+        triangleVBO = ZE::VertexBuffer::Create(sizeof(vertices), vertices);
         triangleVBO->SetLayout({
-            { ZZX::ShaderDataType::Float3, "a_Pos" }
+            { ZE::ShaderDataType::Float3, "a_Pos" }
             });
         m_TriangleVAO->AddVertexBuffer(triangleVBO);
         unsigned int indices[3] = { 0, 1, 2 };
-        ZZX::Ref<ZZX::IndexBuffer> triangleEBO;
-        triangleEBO = ZZX::IndexBuffer::Create(sizeof(indices) / sizeof(uint32_t), indices);
+        ZE::Ref<ZE::IndexBuffer> triangleEBO;
+        triangleEBO = ZE::IndexBuffer::Create(sizeof(indices) / sizeof(uint32_t), indices);
         m_TriangleVAO->SetIndexBuffer(triangleEBO);
     }
 
 
     {
-        m_SquareVAO = ZZX::VertexArray::Create();
+        m_SquareVAO = ZE::VertexArray::Create();
         float squareVertices[5 * 4] = {
             -0.5f, -0.5f, 0.0f, 0.0f, 0.0f,
              0.5f, -0.5f, 0.0f, 1.0f, 0.0f,
              0.5f,  0.5f, 0.0f, 1.0f, 1.0f,
             -0.5f,  0.5f, 0.0f, 0.0f, 1.0f
         };
-        ZZX::Ref<ZZX::VertexBuffer> squareVBO;
-        squareVBO = ZZX::VertexBuffer::Create(sizeof(squareVertices), squareVertices);
+        ZE::Ref<ZE::VertexBuffer> squareVBO;
+        squareVBO = ZE::VertexBuffer::Create(sizeof(squareVertices), squareVertices);
         squareVBO->SetLayout({
-            { ZZX::ShaderDataType::Float3, "a_Pos" },
-            { ZZX::ShaderDataType::Float2, "a_TexCoord" }
+            { ZE::ShaderDataType::Float3, "a_Pos" },
+            { ZE::ShaderDataType::Float2, "a_TexCoord" }
             });
         m_SquareVAO->AddVertexBuffer(squareVBO);
 
         uint32_t squareIndices[6] = { 0, 1, 2, 2, 3, 0 };
-        ZZX::Ref<ZZX::IndexBuffer> squareEBO;
-        squareEBO = ZZX::IndexBuffer::Create(sizeof(squareIndices) / sizeof(uint32_t), squareIndices);
+        ZE::Ref<ZE::IndexBuffer> squareEBO;
+        squareEBO = ZE::IndexBuffer::Create(sizeof(squareIndices) / sizeof(uint32_t), squareIndices);
         m_SquareVAO->SetIndexBuffer(squareEBO);
     }
 
@@ -76,7 +76,7 @@ ExampleLayer::ExampleLayer()
             }  
         )";
 
-    m_Shader = ZZX::Shader::Create("VertexPosTriangle", vertexSrc, fragSrc);
+    m_Shader = ZE::Shader::Create("VertexPosTriangle", vertexSrc, fragSrc);
 
     std::string flatColorShaderVS = R"(
             #version 330 core
@@ -101,30 +101,30 @@ ExampleLayer::ExampleLayer()
             }  
         )";
 
-    m_FlatShader = ZZX::Shader::Create("FlatColor", flatColorShaderVS, flatColorShaderFS);
+    m_FlatShader = ZE::Shader::Create("FlatColor", flatColorShaderVS, flatColorShaderFS);
     auto texShader = m_ShaderLib.Load("assets/shaders/Texture.glsl");
 
-    m_Texture = ZZX::Texture2D::Create("assets/textures/Checkerboard.png");
-    m_ChernoLogTexture = ZZX::Texture2D::Create("assets/textures/ChernoLogo.png");
-    std::dynamic_pointer_cast<ZZX::OpenGLShader>(texShader)->Bind();
-    std::dynamic_pointer_cast<ZZX::OpenGLShader>(texShader)->UploadInt("u_Texture", 0);
+    m_Texture = ZE::Texture2D::Create("assets/textures/Checkerboard.png");
+    m_ChernoLogTexture = ZE::Texture2D::Create("assets/textures/ChernoLogo.png");
+    std::dynamic_pointer_cast<ZE::OpenGLShader>(texShader)->Bind();
+    std::dynamic_pointer_cast<ZE::OpenGLShader>(texShader)->UploadInt("u_Texture", 0);
 }
 
-void ExampleLayer::OnUpdate(ZZX::Timestep timestep) 
+void ExampleLayer::OnUpdate(ZE::Timestep timestep) 
 {
     // Update
     m_CameraController.OnUpdate(timestep);
 
     // Render submission
-    ZZX::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
-    ZZX::RenderCommand::Clear();
+    ZE::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+    ZE::RenderCommand::Clear();
 
-    ZZX::Renderer::BeginScene(m_CameraController.GetCamera());
+    ZE::Renderer::BeginScene(m_CameraController.GetCamera());
 
     static glm::mat4 scale = glm::scale(glm::mat4(1.0f), glm::vec3(0.1f));
 
-    std::dynamic_pointer_cast<ZZX::OpenGLShader>(m_FlatShader)->Bind();
-    std::dynamic_pointer_cast<ZZX::OpenGLShader>(m_FlatShader)->UploadVec3("u_Color", m_SquareColor);
+    std::dynamic_pointer_cast<ZE::OpenGLShader>(m_FlatShader)->Bind();
+    std::dynamic_pointer_cast<ZE::OpenGLShader>(m_FlatShader)->UploadVec3("u_Color", m_SquareColor);
 
     for (int y = 0; y < 20; y++)
     {
@@ -132,20 +132,20 @@ void ExampleLayer::OnUpdate(ZZX::Timestep timestep)
         {
             glm::vec3 pos(x * 0.15f, y * 0.15f, 0.0f);
             glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
-            ZZX::Renderer::Submit(m_FlatShader, m_SquareVAO, transform);
+            ZE::Renderer::Submit(m_FlatShader, m_SquareVAO, transform);
         }
     }
 
     auto texShader = m_ShaderLib.Get("Texture");
 
     m_Texture->Bind(0);
-    ZZX::Renderer::Submit(texShader, m_SquareVAO, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+    ZE::Renderer::Submit(texShader, m_SquareVAO, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
 
     m_ChernoLogTexture->Bind(0);
-    ZZX::Renderer::Submit(texShader, m_SquareVAO, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
-    //ZZX::Renderer::Submit(m_Shader, m_TriangleVAO);
+    ZE::Renderer::Submit(texShader, m_SquareVAO, glm::scale(glm::mat4(1.0f), glm::vec3(1.5f)));
+    //ZE::Renderer::Submit(m_Shader, m_TriangleVAO);
 
-    ZZX::Renderer::EndScene();
+    ZE::Renderer::EndScene();
 }
 
 void ExampleLayer::OnImguiRender() 
@@ -156,7 +156,7 @@ void ExampleLayer::OnImguiRender()
     ImGui::End();
 }
 
-void ExampleLayer::OnEvent(ZZX::Event& e) 
+void ExampleLayer::OnEvent(ZE::Event& e) 
 {
     m_CameraController.OnEvent(e);
 }

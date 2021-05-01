@@ -3,7 +3,7 @@
 #include "OrthographicCamera.h"
 #include "Shader.h"
 
-namespace ZZX
+namespace ZE
 {
     class Renderer
     {

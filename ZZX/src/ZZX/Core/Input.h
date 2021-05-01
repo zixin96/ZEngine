@@ -4,7 +4,7 @@
 #include "ZZX/Core/MouseButtonCodes.h"
 #include <glm/glm.hpp>
 
-namespace ZZX
+namespace ZE
 {
 	// to be implemented in platform-specific input class
     class Input

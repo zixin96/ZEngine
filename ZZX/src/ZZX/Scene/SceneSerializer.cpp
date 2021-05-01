@@ -63,7 +63,7 @@ namespace YAML
 }
 
 
-namespace ZZX
+namespace ZE
 {
 
     YAML::Emitter& operator<<(YAML::Emitter& out, const glm::vec3& v)

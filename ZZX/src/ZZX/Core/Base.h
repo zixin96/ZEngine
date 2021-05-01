@@ -10,7 +10,7 @@
 
 #include "ZZX/Core/Assert.h"
 
-namespace ZZX
+namespace ZE
 {
     void InitializeCore();
     void ShutdownCore();

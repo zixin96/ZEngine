@@ -3,7 +3,7 @@
 
 #include <glm/gtc/matrix_transform.hpp>
 
-namespace ZZX
+namespace ZE
 {
 
     OrthographicCamera::OrthographicCamera(float left, float right, float bottom, float top)

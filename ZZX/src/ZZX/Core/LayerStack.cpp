@@ -2,7 +2,7 @@
 #include "LayerStack.h"
 
 
-namespace ZZX
+namespace ZE
 {
     LayerStack::~LayerStack()
     {

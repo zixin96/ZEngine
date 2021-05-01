@@ -3,7 +3,7 @@
 #include "ZZX/Renderer/Framebuffer.h"
 
 
-namespace ZZX
+namespace ZE
 {
 
     class OpenGLFramebuffer : public Framebuffer

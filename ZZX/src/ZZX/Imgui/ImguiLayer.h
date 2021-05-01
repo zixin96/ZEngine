@@ -6,7 +6,7 @@
 #include "ZZX/Events/KeyEvent.h"
 #include "ZZX/Events/ApplicationEvent.h"
 
-namespace ZZX
+namespace ZE
 {
     class ImguiLayer : public Layer
     {

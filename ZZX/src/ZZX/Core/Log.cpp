@@ -5,7 +5,7 @@
 #include "spdlog/sinks/basic_file_sink.h"
 #include <filesystem>
  
-namespace ZZX
+namespace ZE
 {
     Ref<spdlog::logger> Log::s_CoreLogger;
     Ref<spdlog::logger> Log::s_ClientLogger;

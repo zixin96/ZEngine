@@ -3,7 +3,7 @@
 #include <glm/glm.hpp>
 #include "VertexArray.h"
 
-namespace ZZX
+namespace ZE
 {
     class RendererAPI
     {

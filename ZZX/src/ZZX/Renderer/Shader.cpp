@@ -4,7 +4,7 @@
 #include "Renderer.h"
 #include "Platform/OpenGL/OpenGLShader.h"
 
-namespace ZZX
+namespace ZE
 {
     Ref<Shader> Shader::Create(const std::string& filePath)
     {

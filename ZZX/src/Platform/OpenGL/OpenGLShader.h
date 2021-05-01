@@ -5,7 +5,7 @@
 // TDO: REMOVE!
 typedef unsigned int GLenum;
 
-namespace ZZX
+namespace ZE
 {
     class OpenGLShader : public Shader
     {

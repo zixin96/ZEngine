@@ -2,28 +2,28 @@
 
 #include "ZZX.h"
 
-class ExampleLayer : public ZZX::Layer
+class ExampleLayer : public ZE::Layer
 {
 public:
     ExampleLayer();
  
-    void OnUpdate(ZZX::Timestep timestep) override;
+    void OnUpdate(ZE::Timestep timestep) override;
 
     void OnImguiRender() override;
    
-    void OnEvent(ZZX::Event& e) override;
+    void OnEvent(ZE::Event& e) override;
   
 private:
-    ZZX::ShaderLibrary m_ShaderLib;
-    ZZX::Ref<ZZX::Shader>        m_FlatShader;
-    ZZX::Ref<ZZX::VertexArray>   m_SquareVAO;
+    ZE::ShaderLibrary m_ShaderLib;
+    ZE::Ref<ZE::Shader>        m_FlatShader;
+    ZE::Ref<ZE::VertexArray>   m_SquareVAO;
 
-    ZZX::Ref<ZZX::Shader>        m_Shader;
-    ZZX::Ref<ZZX::VertexArray>   m_TriangleVAO;
+    ZE::Ref<ZE::Shader>        m_Shader;
+    ZE::Ref<ZE::VertexArray>   m_TriangleVAO;
 
-    ZZX::Ref<ZZX::Texture2D>     m_Texture, m_ChernoLogTexture;
+    ZE::Ref<ZE::Texture2D>     m_Texture, m_ChernoLogTexture;
 
-    ZZX::OrthographicCameraController m_CameraController;
+    ZE::OrthographicCameraController m_CameraController;
 
     glm::vec3 m_SquareColor{0.2f, 0.3f, 0.8f};
 };

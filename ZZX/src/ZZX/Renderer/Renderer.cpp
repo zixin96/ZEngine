@@ -3,7 +3,7 @@
 #include "Platform/OpenGL/OpenGLShader.h"
 #include "Renderer2D.h"
 
-namespace ZZX
+namespace ZE
 {
     Renderer::SceneData* Renderer::s_SceneData = new Renderer::SceneData;
 

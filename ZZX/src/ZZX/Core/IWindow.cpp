@@ -5,7 +5,7 @@
 	#include "Platform/Windows/WindowsSystemWindow.h"
 #endif
 
-namespace ZZX
+namespace ZE
 {
 	Scope<IWindow> IWindow::Create(const WindowProperties& props)
 	{

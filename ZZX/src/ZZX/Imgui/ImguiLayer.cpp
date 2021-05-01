@@ -13,7 +13,7 @@
 
 #include "ImGuizmo.h"
 
-namespace ZZX
+namespace ZE
 {
 
     ImguiLayer::ImguiLayer()

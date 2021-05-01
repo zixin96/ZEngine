@@ -3,7 +3,7 @@
 #include "Renderer.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
-namespace ZZX
+namespace ZE
 {
 
     Ref<VertexBuffer> VertexBuffer::Create(uint32_t size, float* vertices)

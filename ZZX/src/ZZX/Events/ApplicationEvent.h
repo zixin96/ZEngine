@@ -2,7 +2,7 @@
 
 #include "Event.h"
 
-namespace ZZX
+namespace ZE
 {
 	class  WindowResizeEvent : public Event
 	{

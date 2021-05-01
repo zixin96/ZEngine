@@ -7,7 +7,7 @@
 
 #include "Platform/OpenGL/OpenGLContext.h"
 
-namespace ZZX
+namespace ZE
 {
     static uint8_t s_GLFWWindowCount = 0;
 

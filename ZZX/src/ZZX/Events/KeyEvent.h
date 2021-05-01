@@ -3,7 +3,7 @@
 #include "Event.h"
 #include "ZZX/Core/KeyCodes.h"
 
-namespace ZZX
+namespace ZE
 {
 	class KeyEvent : public Event 
 	{
