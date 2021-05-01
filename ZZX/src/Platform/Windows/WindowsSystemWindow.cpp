@@ -85,13 +85,13 @@ namespace ZE
             m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
         }
-        
-        
+               
         m_Context = new OpenGLContext(m_Window);
         m_Context->Init();
       
+        // Pass m_Data into glfwCallback functions 
         glfwSetWindowUserPointer(m_Window, &m_Data);
-        SetVSync(true);
+
         // Set GLFW callbacks
         glfwSetWindowSizeCallback(m_Window, [](GLFWwindow* window, int width, int height)
         {

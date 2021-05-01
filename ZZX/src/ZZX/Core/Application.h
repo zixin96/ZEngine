@@ -39,9 +39,9 @@ namespace ZE
         Scope<IWindow>      m_Window;
         ImguiLayer*         m_ImguiLayer;
         LayerStack          m_LayerStack; 
-        float               m_LastFrameTime;
-        bool                m_Running;
-        bool                m_Minimized;
+        float               m_LastFrameTime = 0.0f;
+        bool                m_Running = true;
+        bool                m_Minimized = false;
 
         static Application* s_Instance;
     };

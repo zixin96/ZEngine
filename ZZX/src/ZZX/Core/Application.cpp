@@ -18,20 +18,13 @@ namespace ZE
     Application* Application::s_Instance = nullptr;
 
     Application::Application(const std::string& name)
-        : m_Window(nullptr),
-        m_ImguiLayer(nullptr),
-        m_LayerStack(),
-        m_LastFrameTime(0.0f),
-        m_Running(true),
-        m_Minimized(false)
     {
-        ZE_PROFILE_FUNCTION();
-
         ZE_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
         m_Window = IWindow::Create(WindowProperties(name, WINDOW_WIDTH, WINDOW_HEIGHT));
         m_Window->SetEventCallback(ZE_BIND_EVENT_FN(Application::OnEvent));
+        m_Window->SetVSync(true);
 
         Renderer::Init();
 
