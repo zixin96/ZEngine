@@ -23,7 +23,7 @@
 
 #include "ZZX/Debug/Instrumentor.h"
 
-#ifdef ZZX_PLATFORM_WINDOWS
+#ifdef ZE_PLATFORM_WINDOWS
 	// Windows API
 	#include <Windows.h>
 #endif

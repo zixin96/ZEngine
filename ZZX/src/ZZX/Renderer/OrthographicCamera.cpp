@@ -16,7 +16,7 @@ namespace ZZX
 
     void OrthographicCamera::SetProjection(float left, float right, float bottom, float top)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_ProjMat = glm::ortho(left, right, bottom, top, -1.0f, 1.0f);
         m_ViewProjMat = m_ProjMat * m_ViewMat;
@@ -34,7 +34,7 @@ namespace ZZX
 
     void OrthographicCamera::RecomputeViewMatrix()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glm::mat4 transform(1.0f);
         transform = glm::translate(transform, m_Pos);

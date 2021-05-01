@@ -23,7 +23,7 @@ namespace ZZX
             case ShaderDataType::Int4: return 4 * 4;
             case ShaderDataType::Bool: return 1;
         }
-        ZZX_CORE_ASSERT(false, "Unknown ShaderDataType!");
+        ZE_CORE_ASSERT(false, "Unknown ShaderDataType!");
         return 0;
     }
 
@@ -67,7 +67,7 @@ namespace ZZX
                 return 1;
             }
 
-            ZZX_CORE_ASSERT(false, "Unknown ShaderDataType!");
+            ZE_CORE_ASSERT(false, "Unknown ShaderDataType!");
             return 0;
         }
     };

@@ -25,13 +25,13 @@ namespace ZZX
         m_Running(true),
         m_Minimized(false)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
-        ZZX_CORE_ASSERT(!s_Instance, "Application already exists!");
+        ZE_CORE_ASSERT(!s_Instance, "Application already exists!");
         s_Instance = this;
 
         m_Window = IWindow::Create(WindowProperties(name, WINDOW_WIDTH, WINDOW_HEIGHT));
-        m_Window->SetEventCallback(ZZX_BIND_EVENT_FN(Application::OnEvent));
+        m_Window->SetEventCallback(ZE_BIND_EVENT_FN(Application::OnEvent));
 
         Renderer::Init();
 
@@ -41,14 +41,14 @@ namespace ZZX
 
     Application::~Application()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         Renderer::Shutdown();
     }
 
     void Application::PushLayer(Layer* layer)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_LayerStack.PushLayer(layer);
         layer->OnAttach();
@@ -56,7 +56,7 @@ namespace ZZX
 
     void Application::PushOverlay(Layer* overlay)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_LayerStack.PushOverlay(overlay);
         overlay->OnAttach();
@@ -69,11 +69,11 @@ namespace ZZX
 
     void Application::Run()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         while (m_Running)
         {
-            ZZX_PROFILE_SCOPE("Application RunLoop");
+            ZE_PROFILE_SCOPE("Application RunLoop");
 
             float time = (float)glfwGetTime(); // Platform::GetTime
             Timestep timestep = time - m_LastFrameTime;
@@ -82,7 +82,7 @@ namespace ZZX
             if (!m_Minimized)
             {
                 {
-                    ZZX_PROFILE_SCOPE("LayerStack - OnUpdate");
+                    ZE_PROFILE_SCOPE("LayerStack - OnUpdate");
                     for (Layer* layer : m_LayerStack)
                     {
                         layer->OnUpdate(timestep);
@@ -92,7 +92,7 @@ namespace ZZX
 
             m_ImguiLayer->Begin();
             {
-                ZZX_PROFILE_SCOPE("LayerStack - OnImguiRender");
+                ZE_PROFILE_SCOPE("LayerStack - OnImguiRender");
                 for (Layer* layer : m_LayerStack)
                 {
                     layer->OnImguiRender();
@@ -107,12 +107,12 @@ namespace ZZX
 
     void Application::OnEvent(Event& e)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<WindowCloseEvent>(ZZX_BIND_EVENT_FN(Application::OnWindowClosed));
-        dispatcher.Dispatch<KeyPressedEvent>(ZZX_BIND_EVENT_FN(Application::OnWindowKeyPressed));
-        dispatcher.Dispatch<WindowResizeEvent>(ZZX_BIND_EVENT_FN(Application::OnWindowResized));
+        dispatcher.Dispatch<WindowCloseEvent>(ZE_BIND_EVENT_FN(Application::OnWindowClosed));
+        dispatcher.Dispatch<KeyPressedEvent>(ZE_BIND_EVENT_FN(Application::OnWindowKeyPressed));
+        dispatcher.Dispatch<WindowResizeEvent>(ZE_BIND_EVENT_FN(Application::OnWindowResized));
 
         for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
         {            
@@ -143,7 +143,7 @@ namespace ZZX
 
     bool Application::OnWindowResized(WindowResizeEvent& e)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (e.GetWidth() == 0 || e.GetHeight() == 0)
         {

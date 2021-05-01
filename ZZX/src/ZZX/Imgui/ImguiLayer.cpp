@@ -24,7 +24,7 @@ namespace ZZX
 
     void ImguiLayer::OnAttach()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         // Setup Dear ImGui context
         IMGUI_CHECKVERSION();
@@ -61,7 +61,7 @@ namespace ZZX
 
     void ImguiLayer::OnDetach()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         ImGui_ImplOpenGL3_Shutdown();
         ImGui_ImplGlfw_Shutdown();
@@ -80,7 +80,7 @@ namespace ZZX
 
     void ImguiLayer::Begin()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
@@ -90,7 +90,7 @@ namespace ZZX
 
     void ImguiLayer::End()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         ImGuiIO& io = ImGui::GetIO();
         Application& app = Application::Get();

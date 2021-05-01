@@ -177,7 +177,7 @@ namespace ZZX
     void SceneSerializer::SerializeRuntime(const std::string& filePath)
     {
         // Not implemented
-        ZZX_CORE_ASSERT(false);
+        ZE_CORE_ASSERT(false);
     }
 
     bool SceneSerializer::Deserialize(const std::string& filePath)
@@ -193,7 +193,7 @@ namespace ZZX
         }
 
         std::string sceneName = data["Scene"].as<std::string>();
-        ZZX_CORE_TRACE("Deserializing scene '{0}'", sceneName);
+        ZE_CORE_TRACE("Deserializing scene '{0}'", sceneName);
 
         auto entities = data["Entities"];
         if (entities)
@@ -208,7 +208,7 @@ namespace ZZX
                     name = tagComp["Tag"].as<std::string>();
                 }
 
-                ZZX_CORE_TRACE("Deserialized entity with ID = {0}, name = {1}", uuid, name);
+                ZE_CORE_TRACE("Deserialized entity with ID = {0}, name = {1}", uuid, name);
 
                 Entity deserializedEntity = m_Scene->CreateEntity(name);
 
@@ -257,7 +257,7 @@ namespace ZZX
     bool SceneSerializer::DeserializeRuntime(const std::string& filePath)
     {
         // Not implemented
-        ZZX_CORE_ASSERT(false);
+        ZE_CORE_ASSERT(false);
         return false;
     }
 }

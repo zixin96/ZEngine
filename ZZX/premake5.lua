@@ -61,17 +61,17 @@ project "ZZX"
 		}
 	
 	filter "configurations:Debug"
-		defines "ZZX_DEBUG"
+		defines "ZE_DEBUG"
 		runtime "Debug"
 		symbols "on"
 
 	filter "configurations:Release"
-		defines "ZZX_RELEASE"
+		defines "ZE_RELEASE"
 		runtime "Release"
 		optimize "on"
 
 	filter "configurations:Dist"
-		defines "ZZX_DIST"
+		defines "ZE_DIST"
 		runtime "Release"
 		optimize "on"
 	

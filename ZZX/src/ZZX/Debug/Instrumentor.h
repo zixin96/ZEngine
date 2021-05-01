@@ -122,15 +122,15 @@ namespace ZZX
     };
 }
 
-#define ZZX_PROFILE 1
-#if ZZX_PROFILE
-    #define ZZX_PROFILE_BEGIN_SESSION(name, filePath) ::ZZX::Instrumentor::Get().BeginSession(name, filePath)
-    #define ZZX_PROFILE_END_SESSION() ::ZZX::Instrumentor::Get().EndSession()
-    #define ZZX_PROFILE_SCOPE(name) ::ZZX::InstrumentationTimer timer##__LINE__(name)
-    #define ZZX_PROFILE_FUNCTION() ZZX_PROFILE_SCOPE(__FUNCSIG__)
+#define ZE_PROFILE 1
+#if ZE_PROFILE
+    #define ZE_PROFILE_BEGIN_SESSION(name, filePath) ::ZZX::Instrumentor::Get().BeginSession(name, filePath)
+    #define ZE_PROFILE_END_SESSION() ::ZZX::Instrumentor::Get().EndSession()
+    #define ZE_PROFILE_SCOPE(name) ::ZZX::InstrumentationTimer timer##__LINE__(name)
+    #define ZE_PROFILE_FUNCTION() ZE_PROFILE_SCOPE(__FUNCSIG__)
 #else 
-    #define ZZX_PROFILE_BEGIN_SESSION(name, filePath)
-    #define ZZX_PROFILE_END_SESSION()
-    #define ZZX_PROFILE_SCOPE(name)
-    #define ZZX_PROFILE_FUNCTION()
+    #define ZE_PROFILE_BEGIN_SESSION(name, filePath)
+    #define ZE_PROFILE_END_SESSION()
+    #define ZE_PROFILE_SCOPE(name)
+    #define ZE_PROFILE_FUNCTION()
 #endif

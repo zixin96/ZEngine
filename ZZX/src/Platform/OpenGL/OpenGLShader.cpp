@@ -16,14 +16,14 @@ namespace ZZX
             return GL_FRAGMENT_SHADER;
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown shader type!");
+        ZE_CORE_ASSERT(false, "Unknown shader type!");
         return 0;
     }
 
     OpenGLShader::OpenGLShader(const std::string& filePath)
         : m_RendererID(0), m_Name(ExtractNameFromFilePath(filePath))
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         std::string source = ReadFile(filePath);
         auto shaderSources = Preprocess(source);
@@ -33,7 +33,7 @@ namespace ZZX
     OpenGLShader::OpenGLShader(const std::string& name, const std::string& vertexSource, const std::string& fragmentSource)
         : m_RendererID(0), m_Name(name)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         std::unordered_map<GLenum, std::string> shaderSrcMaps;
         shaderSrcMaps[GL_VERTEX_SHADER] = vertexSource;
@@ -43,7 +43,7 @@ namespace ZZX
 
     OpenGLShader::~OpenGLShader()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glDeleteProgram(m_RendererID);
     }
@@ -59,7 +59,7 @@ namespace ZZX
 
     std::string OpenGLShader::ReadFile(const std::string& filePath)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         std::string result;
         std::ifstream in(filePath, std::ios::in | std::ios::binary);
@@ -72,14 +72,14 @@ namespace ZZX
             in.close();
         }
         else {
-            ZZX_CORE_ERROR("Could not open file '{0}'", filePath);
+            ZE_CORE_ERROR("Could not open file '{0}'", filePath);
         }
         return result;
     }
 
     std::unordered_map<GLenum, std::string> OpenGLShader::Preprocess(const std::string& source)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         std::unordered_map<GLenum, std::string> shaderSrcMaps;
 
@@ -89,10 +89,10 @@ namespace ZZX
         while (pos != std::string::npos)
         {
             size_t eol = source.find_first_of("\r\n", pos);
-            ZZX_CORE_ASSERT(eol != std::string::npos, "Syntax error");
+            ZE_CORE_ASSERT(eol != std::string::npos, "Syntax error");
             size_t begin = pos + typeTokenLength + 1;
             std::string type = source.substr(begin, eol - begin);
-            ZZX_CORE_ASSERT(ShaderTypeFromString(type), "Invalid shader type specified");
+            ZE_CORE_ASSERT(ShaderTypeFromString(type), "Invalid shader type specified");
 
             size_t nextLinePos = source.find_first_of("\r\n", eol);
             pos = source.find(typeToken, nextLinePos);
@@ -105,10 +105,10 @@ namespace ZZX
 
     void OpenGLShader::Compile(const std::unordered_map<GLenum, std::string>& shaderSrcMaps)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         GLuint program = glCreateProgram();
-        ZZX_CORE_ASSERT(shaderSrcMaps.size() <= 2, "We only support 2 shaders for now");
+        ZE_CORE_ASSERT(shaderSrcMaps.size() <= 2, "We only support 2 shaders for now");
         std::array<GLenum, 2> glShaderIDs;
         int glShaderIDIndex = 0;
         for (auto& kv : shaderSrcMaps)
@@ -129,8 +129,8 @@ namespace ZZX
                 std::vector<GLchar> infoLog(maxLength);
                 glGetShaderInfoLog(shader, maxLength, &maxLength, &infoLog[0]);
                 glDeleteShader(shader);
-                ZZX_CORE_ERROR("{0}", infoLog.data());
-                ZZX_CORE_ASSERT(false, "Shader Compilation Failture!");
+                ZE_CORE_ERROR("{0}", infoLog.data());
+                ZE_CORE_ASSERT(false, "Shader Compilation Failture!");
                 break;
             }
             glAttachShader(program, shader);
@@ -150,8 +150,8 @@ namespace ZZX
             {
                 glDeleteShader(id);
             }
-            ZZX_CORE_ERROR("{0}", infoLog.data());
-            ZZX_CORE_ASSERT(false, "Shader Link Failture!");
+            ZE_CORE_ERROR("{0}", infoLog.data());
+            ZE_CORE_ASSERT(false, "Shader Link Failture!");
             return;
         }
 
@@ -164,42 +164,42 @@ namespace ZZX
 
     void OpenGLShader::Bind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glUseProgram(m_RendererID);
     }
 
     void OpenGLShader::Unbind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glUseProgram(0);
     }
 
     void OpenGLShader::SetMat4(const std::string& name, const glm::mat4& value)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         UploadMat4(name, value);
     }
 
     void OpenGLShader::SetVec4(const std::string& name, const glm::vec4& value)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         UploadVec4(name, value);
     }
 
     void OpenGLShader::SetVec3(const std::string& name, const glm::vec3& value)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         UploadVec3(name, value);
     }
 
     void OpenGLShader::SetInt(const std::string& name, int value)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         UploadInt(name, value);
     }
@@ -211,7 +211,7 @@ namespace ZZX
 
     void OpenGLShader::SetFloat(const std::string& name, float value)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         UploadFloat(name, value);
     }

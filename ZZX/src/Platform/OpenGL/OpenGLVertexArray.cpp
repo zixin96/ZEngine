@@ -33,44 +33,44 @@ namespace ZZX
             return GL_BOOL;
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown ShaderDataType!");
+        ZE_CORE_ASSERT(false, "Unknown ShaderDataType!");
         return 0;
     }
 
 
     OpenGLVertexArray::OpenGLVertexArray()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glCreateVertexArrays(1, &m_RendererID);
     }
 
     OpenGLVertexArray::~OpenGLVertexArray()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glDeleteVertexArrays(1, &m_RendererID);
     }
 
     void OpenGLVertexArray::Bind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindVertexArray(m_RendererID);
     }
 
     void OpenGLVertexArray::Unbind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindVertexArray(0);
     }
 
     void OpenGLVertexArray::AddVertexBuffer(const Ref<VertexBuffer>& vertexBuffer)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
-        ZZX_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex buffer has no layout!");
+        ZE_CORE_ASSERT(vertexBuffer->GetLayout().GetElements().size(), "Vertex buffer has no layout!");
 
         glBindVertexArray(m_RendererID);
         vertexBuffer->Bind();
@@ -132,7 +132,7 @@ namespace ZZX
 					break;
 				}
 				default:
-					ZZX_CORE_ASSERT(false, "Unknown, ShaderDataType!");
+					ZE_CORE_ASSERT(false, "Unknown, ShaderDataType!");
 			}
         }
         m_VertexBuffers.push_back(vertexBuffer);
@@ -140,7 +140,7 @@ namespace ZZX
 
     void OpenGLVertexArray::SetIndexBuffer(const Ref<IndexBuffer>& IndexBuffer)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindVertexArray(m_RendererID);
         IndexBuffer->Bind();

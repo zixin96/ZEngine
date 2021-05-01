@@ -12,13 +12,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None:
-                ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+                ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
                 return nullptr;
             case RendererAPI::API::OpenGL:
                 return CreateRef<OpenGLVertexBuffer>(size, vertices);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 
@@ -28,13 +28,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+            ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
             return nullptr;
         case RendererAPI::API::OpenGL:
             return CreateRef<OpenGLVertexBuffer>(size);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 
@@ -44,13 +44,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+            ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
             return nullptr;
         case RendererAPI::API::OpenGL:
             return CreateRef<OpenGLIndexBuffer>(count, indices);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 

@@ -13,26 +13,26 @@ namespace ZZX
 
     static void GLFWErrorCallback(int error, const char* description)
     {
-        ZZX_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
+        ZE_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
     }
     
     WindowsSystemWindow::WindowsSystemWindow(const WindowProperties& props)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         Init(props);
     }
 
     WindowsSystemWindow::~WindowsSystemWindow()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         Shutdown();
     }
 
     void WindowsSystemWindow::OnUpdate()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glfwPollEvents();
         m_Context->SwapBuffers();
@@ -40,7 +40,7 @@ namespace ZZX
 
     void WindowsSystemWindow::SetVSync(bool enabled)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (enabled)
         {
@@ -59,26 +59,26 @@ namespace ZZX
 
     void WindowsSystemWindow::Init(const WindowProperties& props)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_Data.Title = props.Title;
         m_Data.Width = props.Width;
         m_Data.Height = props.Height;
 
-        ZZX_CORE_INFO("Creating window {0}, ({1}, {2})", props.Title, props.Width, props.Height);
+        ZE_CORE_INFO("Creating window {0}, ({1}, {2})", props.Title, props.Width, props.Height);
 
         if (s_GLFWWindowCount == 0)
         {
-            ZZX_PROFILE_SCOPE("glfwInit");
+            ZE_PROFILE_SCOPE("glfwInit");
 
-            ZZX_CORE_INFO("Initializing GLFW");
+            ZE_CORE_INFO("Initializing GLFW");
             int success = glfwInit();
-            ZZX_CORE_ASSERT(success, "Could not initialize GLFW!");
+            ZE_CORE_ASSERT(success, "Could not initialize GLFW!");
             glfwSetErrorCallback(GLFWErrorCallback);
         }
 
         {
-            ZZX_PROFILE_SCOPE("glfwCreateWindow");
+            ZE_PROFILE_SCOPE("glfwCreateWindow");
 
             m_Window = glfwCreateWindow((int)m_Data.Width, (int)m_Data.Height, m_Data.Title.c_str(), nullptr, nullptr);
             ++s_GLFWWindowCount;
@@ -184,13 +184,13 @@ namespace ZZX
 
     void WindowsSystemWindow::Shutdown()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glfwDestroyWindow(m_Window);
 
         if (--s_GLFWWindowCount == 0)
         {
-            ZZX_CORE_INFO("Terminating GLFW");
+            ZE_CORE_INFO("Terminating GLFW");
             glfwTerminate();
         }
     }

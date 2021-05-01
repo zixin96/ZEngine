@@ -20,7 +20,7 @@ namespace ZZX
 
     void OrthographicCameraController::OnUpdate(Timestep ts)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (Input::IsKeyPressed(Key::A))
         {
@@ -59,11 +59,11 @@ namespace ZZX
 
     void OrthographicCameraController::OnEvent(Event& e)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<MouseScrolledEvent>(ZZX_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
-        dispatcher.Dispatch<WindowResizeEvent>(ZZX_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
+        dispatcher.Dispatch<MouseScrolledEvent>(ZE_BIND_EVENT_FN(OrthographicCameraController::OnMouseScrolled));
+        dispatcher.Dispatch<WindowResizeEvent>(ZE_BIND_EVENT_FN(OrthographicCameraController::OnWindowResized));
     }
 
     void OrthographicCameraController::OnResize(float w, float h)
@@ -74,7 +74,7 @@ namespace ZZX
 
     bool OrthographicCameraController::OnMouseScrolled(MouseScrolledEvent& e)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_ZoomLevel -= e.GetYOffset() * 0.25f;
         m_ZoomLevel = std::max(m_ZoomLevel, 0.25f);
@@ -84,7 +84,7 @@ namespace ZZX
 
     bool OrthographicCameraController::OnWindowResized(WindowResizeEvent& e)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         OnResize((float)e.GetWidth(), (float)e.GetHeight());
         return false;

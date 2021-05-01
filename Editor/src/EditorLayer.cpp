@@ -20,7 +20,7 @@ namespace ZZX
     void EditorLayer::OnAttach()
     {
 
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         m_CheckerboardTexture = Texture2D::Create("assets/textures/Checkerboard.png");
 
@@ -95,12 +95,12 @@ namespace ZZX
 
     void EditorLayer::OnDetach()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
     }
 
     void EditorLayer::OnUpdate(Timestep timestep)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         // Resize
         if (FramebufferSpecification spec = m_Framebuffer->GetSpecification();
@@ -153,7 +153,7 @@ namespace ZZX
 
     void EditorLayer::OnImguiRender()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         static bool dockspaceOpen = true;
         static bool opt_fullscreen = true;
@@ -438,8 +438,8 @@ namespace ZZX
         m_EditorCamera.OnEvent(e);
 
         EventDispatcher dispatcher(e);
-        dispatcher.Dispatch<KeyPressedEvent>(ZZX_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
-        dispatcher.Dispatch<MouseButtonPressedEvent>(ZZX_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
+        dispatcher.Dispatch<KeyPressedEvent>(ZE_BIND_EVENT_FN(EditorLayer::OnKeyPressed));
+        dispatcher.Dispatch<MouseButtonPressedEvent>(ZE_BIND_EVENT_FN(EditorLayer::OnMouseButtonPressed));
     }
 
     bool EditorLayer::OnMouseButtonPressed(MouseButtonPressedEvent & e)

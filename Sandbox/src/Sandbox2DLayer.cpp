@@ -11,19 +11,19 @@ Sandbox2DLayer::Sandbox2DLayer()
 
 void Sandbox2DLayer::OnAttach()
 {
-    ZZX_PROFILE_FUNCTION();
+    ZE_PROFILE_FUNCTION();
 
     m_CheckerboardTexture = ZZX::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
 void Sandbox2DLayer::OnDetach()
 {
-    ZZX_PROFILE_FUNCTION();
+    ZE_PROFILE_FUNCTION();
 }
 
 void Sandbox2DLayer::OnUpdate(ZZX::Timestep timestep)
 { 
-    ZZX_PROFILE_FUNCTION();
+    ZE_PROFILE_FUNCTION();
 
     m_CameraController.OnUpdate(timestep);
     
@@ -31,7 +31,7 @@ void Sandbox2DLayer::OnUpdate(ZZX::Timestep timestep)
     // Reset stats here
     ZZX::Renderer2D::ResetStats();
     {
-        ZZX_PROFILE_SCOPE("Renderer Prep");
+        ZE_PROFILE_SCOPE("Renderer Prep");
         ZZX::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
         ZZX::RenderCommand::Clear();
     }
@@ -40,7 +40,7 @@ void Sandbox2DLayer::OnUpdate(ZZX::Timestep timestep)
         static float rotation = 0.0f;
         rotation += timestep * 20.0f;
 
-        ZZX_PROFILE_SCOPE("Renderer Draw");
+        ZE_PROFILE_SCOPE("Renderer Draw");
         // Render submission
         ZZX::Renderer2D::BeginScene(m_CameraController.GetCamera());
         ZZX::Renderer2D::DrawRotatedQuad({ 1.0f, 0.0f }, { 0.8f, 0.8f }, glm::radians(-45.0f), { 0.8f, 0.2f, 0.3f, 1.0f });
@@ -66,7 +66,7 @@ void Sandbox2DLayer::OnUpdate(ZZX::Timestep timestep)
 
 void Sandbox2DLayer::OnImguiRender()
 {
-    ZZX_PROFILE_FUNCTION();
+    ZE_PROFILE_FUNCTION();
 
     ImGui::Begin("Settings");
 

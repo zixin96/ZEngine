@@ -38,7 +38,7 @@ namespace ZZX
 	void EditorCamera::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
-		dispatcher.Dispatch<MouseScrolledEvent>(ZZX_BIND_EVENT_FN(EditorCamera::OnMouseScroll));
+		dispatcher.Dispatch<MouseScrolledEvent>(ZE_BIND_EVENT_FN(EditorCamera::OnMouseScroll));
 	}
 
 	glm::vec3 EditorCamera::GetUpDirection() const

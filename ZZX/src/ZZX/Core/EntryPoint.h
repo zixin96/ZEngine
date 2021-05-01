@@ -2,7 +2,7 @@
 // This header file will be included by client applications (EditorApp.cpp, Game.cpp, etc)
 // so that client project can call this main entrypoint
 
-#ifdef ZZX_PLATFORM_WINDOWS
+#ifdef ZE_PLATFORM_WINDOWS
 
 // To be defined in client
 extern ZZX::Application* ZZX::CreateApplication();
@@ -15,7 +15,7 @@ int main(int argc, char** argv)
     {
         ZZX::InitializeCore();
         ZZX::Application* app = ZZX::CreateApplication();
-        ZZX_CORE_ASSERT(app, "Client Application is null!");
+        ZE_CORE_ASSERT(app, "Client Application is null!");
         app->Run();
         delete app;
         ZZX::ShutdownCore();

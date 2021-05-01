@@ -16,7 +16,7 @@ namespace ZZX
         template<typename T, typename... Args>
         T& AddComponent(Args&&... args)
         {
-            ZZX_CORE_ASSERT(!HasComponent<T>(), "Entity already has component!");
+            ZE_CORE_ASSERT(!HasComponent<T>(), "Entity already has component!");
             T& component =  m_Scene->m_Registry.emplace<T>(m_EntityHandle, std::forward<Args>(args)...);
             m_Scene->OnComponentAdded<T>(*this, component);
             return component;
@@ -25,7 +25,7 @@ namespace ZZX
         template<typename T>
         T& GetComponent()
         {
-            ZZX_CORE_ASSERT(HasComponent<T>(), "Entity doesn't have component!");
+            ZE_CORE_ASSERT(HasComponent<T>(), "Entity doesn't have component!");
             return m_Scene->m_Registry.get<T>(m_EntityHandle);
         }
 
@@ -38,7 +38,7 @@ namespace ZZX
         template<typename T>
         void RemoveComponent()
         {
-            ZZX_CORE_ASSERT(HasComponent<T>(), "Entity doesn't have component!");
+            ZE_CORE_ASSERT(HasComponent<T>(), "Entity doesn't have component!");
             return m_Scene->m_Registry.remove<T>(m_EntityHandle);
         }
 

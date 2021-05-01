@@ -9,7 +9,7 @@ namespace ZZX
 
     void Renderer::Init()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         RenderCommand::Init();
         Renderer2D::Init();

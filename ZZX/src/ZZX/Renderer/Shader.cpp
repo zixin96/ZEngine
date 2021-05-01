@@ -12,13 +12,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+            ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
             return nullptr;
         case RendererAPI::API::OpenGL:
             return CreateRef<OpenGLShader>(filePath);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 
@@ -28,19 +28,19 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
         case RendererAPI::API::None:
-            ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+            ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
             return nullptr;
         case RendererAPI::API::OpenGL:
             return CreateRef<OpenGLShader>(name, vertexSource, fragmentSource);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 
     void ShaderLibrary::Add(const std::string& name, const Ref<Shader>& shader)
     {
-        ZZX_CORE_ASSERT(!Exists(name), "Shader already exists!");
+        ZE_CORE_ASSERT(!Exists(name), "Shader already exists!");
         m_Shaders[name] = shader;
     }
 
@@ -66,7 +66,7 @@ namespace ZZX
 
     Ref<Shader> ShaderLibrary::Get(const std::string& name)
     {
-        ZZX_CORE_ASSERT(Exists(name), "Shader Not Found!");
+        ZE_CORE_ASSERT(Exists(name), "Shader Not Found!");
         return m_Shaders[name];
     }
 

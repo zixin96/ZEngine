@@ -78,7 +78,7 @@ namespace ZZX
 				case FrameBufferTextureFormat::RED_INTEGER:
 					return GL_RED_INTEGER;
 			}
-			ZZX_CORE_ASSERT(false, "Unknown frame buffer texture format!");
+			ZE_CORE_ASSERT(false, "Unknown frame buffer texture format!");
 			return 0;
 		}
 	}
@@ -157,7 +157,7 @@ namespace ZZX
 
 		if (m_ColorAttachments.size() > 1)
 		{
-			ZZX_CORE_ASSERT(m_ColorAttachments.size() <= 4);
+			ZE_CORE_ASSERT(m_ColorAttachments.size() <= 4);
 			GLenum buffers[4] = { GL_COLOR_ATTACHMENT0, GL_COLOR_ATTACHMENT1, GL_COLOR_ATTACHMENT2, GL_COLOR_ATTACHMENT3 };
 			glDrawBuffers(m_ColorAttachments.size(), buffers);
 		}
@@ -166,7 +166,7 @@ namespace ZZX
 			glDrawBuffer(GL_NONE);
 		}
 
-        ZZX_CORE_ASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Framebuffer is incomplete.");
+        ZE_CORE_ASSERT(glCheckFramebufferStatus(GL_FRAMEBUFFER) == GL_FRAMEBUFFER_COMPLETE, "Framebuffer is incomplete.");
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
     }
@@ -187,7 +187,7 @@ namespace ZZX
     {
         if (w == 0 || h == 0 || w > s_MaxFramebufferSize || h > s_MaxFramebufferSize)
         {
-            ZZX_CORE_WARN("Attempted to resize framebuffer to {0}, {1}", w, h);
+            ZE_CORE_WARN("Attempted to resize framebuffer to {0}, {1}", w, h);
             return;
         }
         m_Specification.Width = w;
@@ -197,7 +197,7 @@ namespace ZZX
 
 	void OpenGLFramebuffer::ClearAttachment(uint32_t attachmentIndex, int value)
 	{
-		ZZX_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
+		ZE_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
 
 		auto& spec = m_ColorAttachmentSpecifications[attachmentIndex];
 		glClearTexImage(m_ColorAttachments[attachmentIndex], 0,
@@ -206,7 +206,7 @@ namespace ZZX
 
 	int OpenGLFramebuffer::ReadPixel(uint32_t attachmentIndex, int x, int y)
 	{
-		ZZX_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
+		ZE_CORE_ASSERT(attachmentIndex < m_ColorAttachments.size());
 		glReadBuffer(GL_COLOR_ATTACHMENT0 + attachmentIndex);
 		int pixelData;
 		glReadPixels(x, y, 1, 1, GL_RED_INTEGER, GL_INT, &pixelData);

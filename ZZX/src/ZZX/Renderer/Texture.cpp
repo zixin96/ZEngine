@@ -13,13 +13,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None:
-                ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+                ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
                 return nullptr;
             case RendererAPI::API::OpenGL:
                 return CreateRef<OpenGLTexture2D>(path);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 
@@ -29,13 +29,13 @@ namespace ZZX
         switch (Renderer::GetAPI())
         {
             case RendererAPI::API::None:
-                ZZX_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
+                ZE_CORE_ASSERT(false, "RendererAPI::API::None is currently not supported!");
                 return nullptr;
             case RendererAPI::API::OpenGL:
                 return CreateRef<OpenGLTexture2D>(width, height);
         }
 
-        ZZX_CORE_ASSERT(false, "Unknown RenderAPI!");
+        ZE_CORE_ASSERT(false, "Unknown RenderAPI!");
         return nullptr;
     }
 }

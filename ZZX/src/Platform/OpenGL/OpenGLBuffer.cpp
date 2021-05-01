@@ -6,7 +6,7 @@ namespace ZZX
 {
     OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size, float* vertices)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glCreateBuffers(1, &m_RendererID); 
         glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
@@ -15,7 +15,7 @@ namespace ZZX
 
     OpenGLVertexBuffer::OpenGLVertexBuffer(uint32_t size)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glCreateBuffers(1, &m_RendererID); 
         glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
@@ -24,21 +24,21 @@ namespace ZZX
 
     OpenGLVertexBuffer::~OpenGLVertexBuffer()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glDeleteBuffers(1, &m_RendererID);
     }
 
     void OpenGLVertexBuffer::Bind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindBuffer(GL_ARRAY_BUFFER, m_RendererID);
     }
 
     void OpenGLVertexBuffer::Unbind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindBuffer(GL_ARRAY_BUFFER, 0);
     }
@@ -55,7 +55,7 @@ namespace ZZX
     OpenGLIndexBuffer::OpenGLIndexBuffer(uint32_t count, uint32_t* indices)
         : m_Count(count)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glCreateBuffers(1, &m_RendererID); 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
@@ -64,21 +64,21 @@ namespace ZZX
 
     OpenGLIndexBuffer::~OpenGLIndexBuffer()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glDeleteBuffers(1, &m_RendererID);
     }
 
     void OpenGLIndexBuffer::Bind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_RendererID);
     }
 
     void OpenGLIndexBuffer::Unbind() const
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
     }

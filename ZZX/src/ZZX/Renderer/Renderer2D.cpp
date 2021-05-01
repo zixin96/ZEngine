@@ -48,7 +48,7 @@ namespace ZZX
 
     void Renderer2D::Init()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         s_Data.QuadVertexArray = VertexArray::Create();
         s_Data.QuadVertexBuffer = VertexBuffer::Create(s_Data.MaxVertices * sizeof(QuadVertex));
@@ -109,13 +109,13 @@ namespace ZZX
 
     void Renderer2D::Shutdown()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 		delete[] s_Data.QuadVertexBufferBase;
     }
 
     void Renderer2D::BeginScene(const OrthographicCamera& camera)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         s_Data.TextureShader->Bind();
         s_Data.TextureShader->SetMat4("u_ViewProjMat",
@@ -125,7 +125,7 @@ namespace ZZX
 
     void Renderer2D::BeginScene(const Camera& camera, const glm::mat4& transform)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
         glm::mat4 viewProj = camera.GetProjection() * glm::inverse(transform);
         s_Data.TextureShader->Bind();
         s_Data.TextureShader->SetMat4("u_ViewProjMat",
@@ -135,7 +135,7 @@ namespace ZZX
 
     void Renderer2D::BeginScene(const EditorCamera& camera)
     {
-		ZZX_PROFILE_FUNCTION();
+		ZE_PROFILE_FUNCTION();
 		glm::mat4 viewProj = camera.GetViewProjection();
 		s_Data.TextureShader->Bind();
 		s_Data.TextureShader->SetMat4("u_ViewProjMat",
@@ -165,7 +165,7 @@ namespace ZZX
 
     void Renderer2D::EndScene()
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         uint32_t dataSize = (uint8_t*)s_Data.QuadVertexBufferPtr - (uint8_t*)s_Data.QuadVertexBufferBase;
         s_Data.QuadVertexBuffer->SetData(s_Data.QuadVertexBufferBase, dataSize);
@@ -180,7 +180,7 @@ namespace ZZX
 
     void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const glm::vec4& color)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
             * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
@@ -194,7 +194,7 @@ namespace ZZX
 
     void Renderer2D::DrawQuad(const glm::vec3& position, const glm::vec2& size, const Ref<Texture2D>& texture, float tilingFactor, const glm::vec4& tintColor)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
             * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
         DrawQuad(transform, texture, tilingFactor, tintColor);
@@ -202,7 +202,7 @@ namespace ZZX
 
     void Renderer2D::DrawQuad(const glm::mat4& transform, const glm::vec4& color, int entityID)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         constexpr size_t quadVertexCount = 4;
         constexpr glm::vec2 textureCoords[] = { { 0.0f, 0.0f }, { 1.0f, 0.0f}, {1.0f, 1.0f}, {0.0f, 1.0f} };
@@ -232,7 +232,7 @@ namespace ZZX
 
     void Renderer2D::DrawQuad(const glm::mat4& transform, const Ref<Texture2D>& texture, float tilingFactor /*= 1*/, const glm::vec4& tintColor, int entityID)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
         {
@@ -282,7 +282,7 @@ namespace ZZX
 
     void Renderer2D::DrawRotatedQuad(const glm::vec3& position, const glm::vec2& size, float rotationRad, const glm::vec4& color)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
             * glm::rotate(glm::mat4(1.0f), rotationRad, { 0.0f, 0.0f, 1.0f })
             * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
@@ -296,7 +296,7 @@ namespace ZZX
 
     void Renderer2D::DrawRotatedQuad(const glm::vec3& position, const glm::vec2& size, float rotationRad, const Ref<Texture2D>& texture, float tilingFactor, const glm::vec4& tintColor)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
         glm::mat4 transform = glm::translate(glm::mat4(1.0f), position)
             * glm::rotate(glm::mat4(1.0f), rotationRad, { 0.0f, 0.0f, 1.0f })
             * glm::scale(glm::mat4(1.0f), { size.x, size.y, 1.0f });
@@ -305,7 +305,7 @@ namespace ZZX
 
     void Renderer2D::DrawRotatedQuad(const glm::mat4& transform, float rotationRad, const glm::vec4& color)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
         {
@@ -334,7 +334,7 @@ namespace ZZX
 
     void Renderer2D::DrawRotatedQuad(const glm::mat4& transform, float rotationRad, const Ref<Texture2D>& texture, float tilingFactor /*= 1*/, const glm::vec4& tintColor /*= glm::vec4(1.0f)*/)
     {
-        ZZX_PROFILE_FUNCTION();
+        ZE_PROFILE_FUNCTION();
 
         if (s_Data.QuadIndexCount >= Renderer2DData::MaxIndices)
         {
