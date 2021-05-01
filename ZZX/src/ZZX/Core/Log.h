@@ -2,7 +2,6 @@
 
 #include "Base.h"
 #include "spdlog/spdlog.h"
-#include "spdlog/fmt/ostr.h" // this header is used for logging custom types
 
 namespace ZZX 
 {
