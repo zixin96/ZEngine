@@ -2,6 +2,7 @@
 
 #include "Base.h"
 #include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h" // for logging custom type (such as event)
 
 namespace ZE 
 {

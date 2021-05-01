@@ -5,65 +5,68 @@
 
 namespace ZE
 {
-	class KeyEvent : public Event 
-	{
-	public:
-		inline KeyCode GetKeyCode() const { return m_KeyCode; }
-
-		EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
-
-	protected:
-		// make sure you can't create a keyevent
-		KeyEvent(const KeyCode keycode)
-			: m_KeyCode(keycode) 
-		{}
-
-		KeyCode m_KeyCode;  
-	};
-
-	class KeyPressedEvent : public KeyEvent
-	{
-	public:
-		KeyPressedEvent(const KeyCode keyCode, const uint16_t repeatCount)
-			: KeyEvent(keyCode), m_RepeatCount(repeatCount)
-		{}
-
-		inline uint16_t GetRepeatCount() const { return m_RepeatCount; }
-
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyPressed)
-	private:
-		uint16_t  m_RepeatCount;
-	};
-
-	class KeyReleasedEvent : public KeyEvent
-	{
-	public:
-		KeyReleasedEvent(const KeyCode keyCode)
-			: KeyEvent(keyCode)
-		{}
-
-
-		std::string ToString() const override
-		{
-			std::stringstream ss;
-			ss << "KeyReleasedEvent: " << m_KeyCode;
-			return ss.str();
-		}
-
-		EVENT_CLASS_TYPE(KeyReleased)
-	};
-
-    class  KeyTypedEvent : public KeyEvent
+    // KeyEvent is created as the base class for different key events
+    // because key code is common among all key events
+    class KeyEvent : public Event 
     {
     public:
-		KeyTypedEvent(const KeyCode keyCode)
+        inline KeyCode GetKeyCode() const { return m_KeyCode; }
+
+        EVENT_CLASS_CATEGORY(EventCategoryKeyboard | EventCategoryInput)
+
+    protected:
+        // Key event can only be created by derived classes
+        KeyEvent(const KeyCode keycode)
+            : m_KeyCode(keycode) 
+        {}
+
+        KeyCode m_KeyCode;  
+    };
+
+    class KeyPressedEvent : public KeyEvent
+    {
+    public:
+        KeyPressedEvent(const KeyCode keyCode, const int repeatCount)
+            : KeyEvent(keyCode), m_RepeatCount(repeatCount)
+        {}
+
+        inline int GetRepeatCount() const { return m_RepeatCount; }
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyPressedEvent: " << m_KeyCode << " (" << m_RepeatCount << " repeats)";
+            return ss.str();
+        }
+
+        EVENT_CLASS_TYPE(KeyPressed)
+    private:
+        // Key can be repeated so we keep track of the repeat count
+        int m_RepeatCount;
+    };
+
+    class KeyReleasedEvent : public KeyEvent
+    {
+    public:
+        KeyReleasedEvent(const KeyCode keyCode)
+            : KeyEvent(keyCode)
+        {}
+
+
+        std::string ToString() const override
+        {
+            std::stringstream ss;
+            ss << "KeyReleasedEvent: " << m_KeyCode;
+            return ss.str();
+        }
+
+        EVENT_CLASS_TYPE(KeyReleased)
+    };
+
+    class KeyTypedEvent : public KeyEvent
+    {
+    public:
+        KeyTypedEvent(const KeyCode keyCode)
             : KeyEvent(keyCode)
         {}
 

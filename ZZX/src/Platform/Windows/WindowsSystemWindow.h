@@ -36,6 +36,8 @@ namespace ZE
             unsigned int Width, Height;
             bool VSync;
 
+            // Event callback will be set to Application::OnEvent
+            // when the window is first created
             EventCallbackFn EventCallback;
         };
 

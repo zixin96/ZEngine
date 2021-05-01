@@ -110,16 +110,20 @@ namespace ZE
         ZE_PROFILE_FUNCTION();
 
         EventDispatcher dispatcher(e);
+        // Dispatch e based on its type
         dispatcher.Dispatch<WindowCloseEvent>(ZE_BIND_EVENT_FN(Application::OnWindowClosed));
         dispatcher.Dispatch<KeyPressedEvent>(ZE_BIND_EVENT_FN(Application::OnWindowKeyPressed));
         dispatcher.Dispatch<WindowResizeEvent>(ZE_BIND_EVENT_FN(Application::OnWindowResized));
 
         for (auto it = m_LayerStack.rbegin(); it != m_LayerStack.rend(); ++it)
         {            
-            if (e.Handled)
+            if (e.m_Handled)
             {
+                // if this event has been handled, there is no need to propagate it 
+                // to the layers
                 break;
             }
+            // Propagate this event to layers
             (*it)->OnEvent(e);
         }
     }

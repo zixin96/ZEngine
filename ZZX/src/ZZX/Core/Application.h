@@ -31,6 +31,7 @@ namespace ZE
 
         ImguiLayer* GetImGuiLayer() { return m_ImguiLayer; }
     private:
+        // return true to "consume" the event
         bool OnWindowClosed(WindowCloseEvent& e);
         bool OnWindowKeyPressed(KeyPressedEvent& e);
         bool OnWindowResized(WindowResizeEvent& e);

@@ -73,8 +73,8 @@ namespace ZE
         if (m_BlockEvents)
         {
             ImGuiIO& io = ImGui::GetIO();
-            e.Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
-            e.Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
+            e.m_Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
+            e.m_Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
         }
     }
 

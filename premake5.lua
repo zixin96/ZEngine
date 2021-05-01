@@ -5,8 +5,8 @@ workspace "ZEngine"
 	configurations
 	{
 		"Debug",
-		"Release",
-		"Dist"
+		"Release", -- DEBUG info stripped, optimization on, logging still enabled
+		"Dist" -- Everything stripped, no logging or anything like that
 	}
 
 	flags
