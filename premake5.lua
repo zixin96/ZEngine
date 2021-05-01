@@ -1,4 +1,4 @@
-workspace "ZZX"
+workspace "ZEngine"
 	architecture "x86_64"
 	startproject "Editor"
 

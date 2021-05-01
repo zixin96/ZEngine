@@ -1,27 +1,27 @@
-#include "Sandbox2D.h"
+#include "Sandbox2DLayer.h"
 #include <glm/gtc/type_ptr.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include "imgui/imgui.h"
 #include <chrono>
 
-Sandbox2D::Sandbox2D()
+Sandbox2DLayer::Sandbox2DLayer()
     : Layer("Sandbox2D"),
     m_CameraController(1280.0f / 720.0f, false)
 {}
 
-void Sandbox2D::OnAttach()
+void Sandbox2DLayer::OnAttach()
 {
     ZZX_PROFILE_FUNCTION();
 
     m_CheckerboardTexture = ZZX::Texture2D::Create("assets/textures/Checkerboard.png");
 }
 
-void Sandbox2D::OnDetach()
+void Sandbox2DLayer::OnDetach()
 {
     ZZX_PROFILE_FUNCTION();
 }
 
-void Sandbox2D::OnUpdate(ZZX::Timestep timestep)
+void Sandbox2DLayer::OnUpdate(ZZX::Timestep timestep)
 { 
     ZZX_PROFILE_FUNCTION();
 
@@ -64,7 +64,7 @@ void Sandbox2D::OnUpdate(ZZX::Timestep timestep)
     
 }
 
-void Sandbox2D::OnImguiRender()
+void Sandbox2DLayer::OnImguiRender()
 {
     ZZX_PROFILE_FUNCTION();
 
@@ -83,7 +83,7 @@ void Sandbox2D::OnImguiRender()
     ImGui::End();
 }
 
-void Sandbox2D::OnEvent(ZZX::Event& e)
+void Sandbox2DLayer::OnEvent(ZZX::Event& e)
 {
     m_CameraController.OnEvent(e);
 }

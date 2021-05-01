@@ -1,6 +1,6 @@
 #pragma once
 
-// For use by Game applications
+// A header file intended to be included by client applications
 #include "ZZX/Core/Core.h"
 
 #include "ZZX/Core/Application.h"

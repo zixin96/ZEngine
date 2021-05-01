@@ -1,5 +1,4 @@
 #include <ZZX.h>
-#include <ZZX/Core/EntryPoint.h>
 #include "EditorLayer.h"
 
 namespace ZZX
@@ -24,3 +23,4 @@ namespace ZZX
 
 }
 
+#include <ZZX/Core/EntryPoint.h> // This contains the main function>

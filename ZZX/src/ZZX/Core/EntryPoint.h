@@ -1,24 +1,25 @@
 #pragma once
+// This header file will be included by client applications (EditorApp.cpp, Game.cpp, etc)
+// so that client project can call this main entrypoint
 
 #ifdef ZZX_PLATFORM_WINDOWS
 
+// To be defined in client
 extern ZZX::Application* ZZX::CreateApplication();
+
+bool g_ApplicationRunning = true;
 
 int main(int argc, char** argv)
 {
-    ZZX::Log::Init();
-
-    ZZX_PROFILE_BEGIN_SESSION("Startup", "ZZXProfile-Startup.json");
-    auto app = ZZX::CreateApplication();
-    ZZX_PROFILE_END_SESSION();
-
-    ZZX_PROFILE_BEGIN_SESSION("Runtime", "ZZXProfile-Runtime.json");
-    app->Run();
-    ZZX_PROFILE_END_SESSION();
-
-    ZZX_PROFILE_BEGIN_SESSION("Shutdown", "ZZXProfile-Shutdown.json");
-    delete app;
-    ZZX_PROFILE_END_SESSION();
+    while (g_ApplicationRunning)
+    {
+        ZZX::InitializeCore();
+        ZZX::Application* app = ZZX::CreateApplication();
+        ZZX_CORE_ASSERT(app, "Client Application is null!");
+        app->Run();
+        delete app;
+        ZZX::ShutdownCore();
+    }
 }
 
 #endif

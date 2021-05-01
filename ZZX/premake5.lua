@@ -2,6 +2,7 @@ project "ZZX"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
+	-- Link run time library statically
 	staticruntime "on"
 
 	targetdir ("%{wks.location}/bin/" .. outputdir .. "/%{prj.name}")

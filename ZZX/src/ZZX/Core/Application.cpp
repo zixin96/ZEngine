@@ -11,6 +11,8 @@
 const static uint32_t WINDOW_WIDTH = 1600;
 const static uint32_t WINDOW_HEIGHT = 900;
 
+extern bool g_ApplicationRunning;
+
 namespace ZZX
 {
     Application* Application::s_Instance = nullptr;
@@ -124,7 +126,8 @@ namespace ZZX
 
     bool Application::OnWindowClosed(WindowCloseEvent& e)
     {
-        Close();
+        m_Running = false;
+        g_ApplicationRunning = false; // Request close
         return true;
     }
 

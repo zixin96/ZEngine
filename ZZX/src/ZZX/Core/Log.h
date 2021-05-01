@@ -1,12 +1,8 @@
 #pragma once
 
 #include "Core.h"
-
-// This ignores all warnings raised inside External headers
-#pragma warning(push, 0)
-#include <spdlog/spdlog.h>
-#include <spdlog/fmt/ostr.h> // for logging custom types
-#pragma warning(pop)
+#include "spdlog/spdlog.h"
+#include "spdlog/fmt/ostr.h" // this header is used for logging custom types
 
 namespace ZZX 
 {
@@ -14,6 +10,7 @@ namespace ZZX
     {
     public:
         static void Init();
+        static void Shutdown();
 
         inline static Ref<spdlog::logger>& GetCoreLogger() { return s_CoreLogger; }
         inline static Ref<spdlog::logger>& GetClientLogger() { return s_ClientLogger; }

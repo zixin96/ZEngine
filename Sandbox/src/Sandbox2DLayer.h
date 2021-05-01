@@ -1,11 +1,11 @@
 #pragma once
 #include "ZZX.h"
 
-class Sandbox2D : public ZZX::Layer
+class Sandbox2DLayer : public ZZX::Layer
 {
 public:
-    Sandbox2D();
-    virtual ~Sandbox2D() = default;
+    Sandbox2DLayer();
+    virtual ~Sandbox2DLayer() = default;
     void OnAttach() override;
     void OnDetach() override;
     void OnUpdate(ZZX::Timestep timestep) override;
