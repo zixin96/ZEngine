@@ -89,7 +89,7 @@ namespace ZE
         m_Context = new OpenGLContext(m_Window);
         m_Context->Init();
       
-        // Pass m_Data into glfwCallback functions 
+        // Put m_Data inside m_Window 
         glfwSetWindowUserPointer(m_Window, &m_Data);
 
         // Set GLFW callbacks

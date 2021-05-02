@@ -36,6 +36,13 @@ namespace ZE
     {
         ZE_PROFILE_FUNCTION();
 
+        // Layers' lifetime is controlled by the application
+        for (Layer* layer : m_LayerStack)
+        {
+            layer->OnDetach();
+            delete layer;
+        }
+
         Renderer::Shutdown();
     }
 
@@ -100,6 +107,8 @@ namespace ZE
 
     void Application::OnEvent(Event& e)
     {
+        ZE_CORE_TRACE("OnEvent: {0}", e);
+
         ZE_PROFILE_FUNCTION();
 
         EventDispatcher dispatcher(e);

@@ -34,6 +34,8 @@ namespace ZE
 
     // These macros are created to save typing :)
     // GetStaticType is used for checking the type of an event in run time
+    // #type => "WindowClose" (stringizing)
+    // EventType::##type; => EventType::WindowClose (Token-pasting)
     #define EVENT_CLASS_TYPE(type) static EventType GetStaticType() { return EventType::##type; }\
                                    virtual EventType GetEventType() const override { return GetStaticType(); }\
                                    virtual const char* GetName() const override { return #type; }
