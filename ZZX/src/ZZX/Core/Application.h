@@ -25,6 +25,8 @@ namespace ZE
         void PushLayer(Layer* layer);
         void PushOverlay(Layer* overlay);
 
+        // Popping layers are temporarily ignored
+
         static Application& Get() { return *s_Instance; }
 
         IWindow& GetWindow() { return *m_Window; }
