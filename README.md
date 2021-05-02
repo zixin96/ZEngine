@@ -59,7 +59,7 @@ In-progress:
 - Physics
 - File I/O, Virtual File System (VFS)
 
-
+- If you are stuck at importing ASSIMP, consider watching Modern OpenGL (GLAD) video again!
   
   
 ## References
