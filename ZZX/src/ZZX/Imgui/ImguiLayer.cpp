@@ -16,8 +16,8 @@ namespace ZE
 
     ImguiLayer::ImguiLayer()
         : Layer("ImguiLayer"),
-		m_BlockEvents(true),
-		m_Time(0.0f)
+        m_BlockEvents(true),
+        m_Time(0.0f)
     {}
 
     void ImguiLayer::OnAttach()
@@ -32,7 +32,7 @@ namespace ZE
         io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;           // Enable Docking
         io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;         // Enable Multi-Viewport / Platform Windows
 
-		// Set up Dear ImGui font
+        // Set up Dear ImGui font
         io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Bold.ttf", 16.0f);
         io.FontDefault = io.Fonts->AddFontFromFileTTF("assets/fonts/comicneue/ComicNeue-Regular.ttf", 16.0f);
 
@@ -70,6 +70,8 @@ namespace ZE
     {
         if (m_BlockEvents)
         {
+            // the newer releases of ImGui have event callbacks set by default
+            // we just need to had to capture mouse and key events.
             ImGuiIO& io = ImGui::GetIO();
             e.m_Handled |= e.IsInCategory(EventCategoryMouse) & io.WantCaptureMouse;
             e.m_Handled |= e.IsInCategory(EventCategoryKeyboard) & io.WantCaptureKeyboard;
@@ -83,7 +85,7 @@ namespace ZE
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
-		ImGuizmo::BeginFrame();
+        ImGuizmo::BeginFrame();
     }
 
     void ImguiLayer::End()

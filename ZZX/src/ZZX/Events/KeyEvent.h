@@ -63,6 +63,7 @@ namespace ZE
         EVENT_CLASS_TYPE(KeyReleased)
     };
 
+    // Typing characters
     class KeyTypedEvent : public KeyEvent
     {
     public:
