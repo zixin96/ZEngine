@@ -105,6 +105,7 @@ ExampleLayer::ExampleLayer()
     auto texShader = m_ShaderLib.Load("assets/shaders/Texture.glsl");
 
     m_Texture = ZE::Texture2D::Create("assets/textures/Checkerboard.png");
+
     m_ChernoLogTexture = ZE::Texture2D::Create("assets/textures/ChernoLogo.png");
     std::dynamic_pointer_cast<ZE::OpenGLShader>(texShader)->Bind();
     std::dynamic_pointer_cast<ZE::OpenGLShader>(texShader)->UploadInt("u_Texture", 0);

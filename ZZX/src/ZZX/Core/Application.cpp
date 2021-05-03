@@ -107,8 +107,6 @@ namespace ZE
 
     void Application::OnEvent(Event& e)
     {
-        ZE_CORE_TRACE("OnEvent: {0}", e);
-
         ZE_PROFILE_FUNCTION();
 
         EventDispatcher dispatcher(e);
