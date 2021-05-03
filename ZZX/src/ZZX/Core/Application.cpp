@@ -90,6 +90,7 @@ namespace ZE
                 }
             }
 
+            // TODO: These will be executed on the render thread once multi-threaded architecture is implemented
             m_ImguiLayer->Begin();
             {
                 ZE_PROFILE_SCOPE("LayerStack - OnImguiRender");
