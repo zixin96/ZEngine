@@ -6,7 +6,8 @@
 
 namespace ZE
 {
-	// to be implemented in platform-specific input class
+	// Input polling class
+    // to be implemented in platform-specific input class
     class Input
     {
     public:
