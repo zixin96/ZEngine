@@ -19,6 +19,7 @@ Currently only supports Windows, Visual Studio 2019.
 3. Open `ZZX.sln` and build `Debug` `x64` - Editor should be the startup project so really you can just hit `F5` to build and debug the startup project
 
 ## Engine Architecture
+ZEngine is structured using standard object-oriented approach: abstract base classes are defined for important entities. The majority of the engine is implemented purely in terms of the interfaces provided by these abstract base classes. This approach makes it easy to support multiple platforms and extend the system if necessary.
 
 `Editor` and `Sandbox` are client applications. 
 
