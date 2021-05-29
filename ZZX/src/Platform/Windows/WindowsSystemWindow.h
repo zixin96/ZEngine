@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ZZX/Core/IWindow.h"
-#include "ZZX/Renderer/GraphicsContext.h"
+#include "ZZX/Renderer/RendererContext.h"
 #include <GLFW/glfw3.h>
 
 namespace ZE
@@ -29,7 +29,7 @@ namespace ZE
         virtual void Shutdown();
     private:
         GLFWwindow* m_Window;
-        GraphicsContext* m_Context;
+        RendererContext* m_GraphicsContext;
 
         // WindowData is here for passing into GLFW 
         struct WindowData

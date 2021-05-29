@@ -1,11 +1,11 @@
 #pragma once
-#include "ZZX/Renderer/GraphicsContext.h"
+#include "ZZX/Renderer/RendererContext.h"
 
 struct GLFWwindow;
 
 namespace ZE
 {
-    class OpenGLContext : public GraphicsContext
+    class OpenGLContext : public RendererContext
     {
     public:
         OpenGLContext(GLFWwindow* windowHandle);

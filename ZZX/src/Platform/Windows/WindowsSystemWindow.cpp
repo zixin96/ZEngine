@@ -36,7 +36,7 @@ namespace ZE
         ZE_PROFILE_FUNCTION();
 
         glfwPollEvents();
-        m_Context->SwapBuffers();
+        m_GraphicsContext->SwapBuffers();
     }
 
     void WindowsSystemWindow::SetVSync(bool enabled)
@@ -86,8 +86,8 @@ namespace ZE
             ++s_GLFWWindowCount;
         }
                
-        m_Context = new OpenGLContext(m_Window);
-        m_Context->Init();
+        m_GraphicsContext = new OpenGLContext(m_Window);
+        m_GraphicsContext->Init();
       
         // Put m_Data inside m_Window 
         glfwSetWindowUserPointer(m_Window, &m_Data);
